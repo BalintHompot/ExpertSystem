@@ -11,11 +11,9 @@ import {
   Redirect,
   Switch
 } from "react-router-dom";
-import GoalSelection from "./GoalSelection"
-
-
-const iconStyles = {
-};
+import MainScreen from "./MainScreen"
+import Login from "./Login"
+import Advice from "./Advice"
 
 
 class App extends Component {
@@ -32,7 +30,9 @@ class App extends Component {
         <HashRouter >
         <div className="ExpertSystem" style={{backgroundColor:"blue"}}>
           <Switch>
-            <Route exact path="/" component={GoalSelection}/>
+            <Route exact path="/" component={Login}/>
+            <Route path="/MainScreen" component={MainScreen}/>
+            <Route path="/Advice" component={Advice}/>
             </Switch>
           </div>
         </HashRouter>
