@@ -2,14 +2,11 @@ class Food {
     constructor(name, img, nutrilist, constraints, relevantQuestionTags){
         this.name = name
         this.img = img
-        this.nutrilist = nutrilist
+        this.nutrilist = nutrilist                       //nutrient specific categories
         this.constraints = constraints
-        this.relevantQuestionTags = relevantQuestionTags
+        this.relevantQuestionTags = relevantQuestionTags //broader categories
     }
 }
-
-
-
 
 var foodlist = [
     new Food("chicken",  "./img/chicken.png", {B12:1, Vegetables:0},  ["meat", "animal"], ["meat?"] ),
