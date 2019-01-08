@@ -62,21 +62,32 @@ class MainScreen extends Component {
   }
 
   lookForNewQuestions(){
-    var biggestDiff = 99999999
+    var biggestDiff = 0
     var mostImportant = null
     var ratio = 0
     for (var n in global.nutrients){
-      ratio = global.nutrients[n].estimated / global.nutrients[n].rda
-      if (ratio < biggestDiff && global.nutrients[n].estimated < global.nutrients[n].threshold){
+      ratio = (1-global.nutrients[n].estimated / global.nutrients[n].rda)*global.nutrients[n].importanceMultiplier
+      console.log("nutrient is ")
+      console.log(global.nutrients[n])
+      console.log("ratio is ")
+      console.log(ratio)
+      if (ratio > biggestDiff){
         mostImportant = n
+        biggestDiff = ratio
       }
     }
     console.log("most important is")
     console.log(mostImportant)
+    if(biggestDiff<=0){
+      console.log("you are very healthy")
+      return
+    }
     var newQ = global.nutrients[mostImportant].questionList.shift()
+    //No more questions, getting the advice:
     if (newQ == null){
       newQ = {text: ""}
       global.lackingNutrient = mostImportant
+      global.consumedList = this.state.consumed
       this.props.history.push('/Advice')
 
     }
@@ -84,15 +95,18 @@ class MainScreen extends Component {
   }
 
   selectRelevantFoods(question){
-    console.log("selecting foodlist")
+
     var ret = []
-    for (var i in this.foodListAll){
-      for (var tag in this.foodListAll[i].relevantQuestionTags){
-        if (this.foodListAll[i].relevantQuestionTags[tag] == question.tag){
-          ret.push(this.foodListAll[i])
+    for (var j in question.tag){
+      for (var i in this.foodListAll){
+        for (var tag in this.foodListAll[i].relevantQuestionTags){
+          if (this.foodListAll[i].relevantQuestionTags[tag] == question.tag[j]){
+            ret.push(this.foodListAll[i])
+          }
         }
       }
     }
+
     this.setState({
       currentFoodlist: ret
     })

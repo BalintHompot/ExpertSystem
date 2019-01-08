@@ -14,6 +14,7 @@ class Global {
         this.questionList = q.questionList
         this.nutrients = n.nutriList
         this.lackingNutrient = null
+        this.consumedList = []
 
         this.setProperty = function(key, value){
             key = key.toString()

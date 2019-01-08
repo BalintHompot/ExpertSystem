@@ -1,4 +1,4 @@
-obclass Question{
+class Question{
     constructor(text, tag, constraints){
         this.text = text
         this.tag = tag
@@ -6,7 +6,7 @@ obclass Question{
     }
 }
 class Nutrient{
-    constructor(name, rda, estimated, importanceMultiplier, questionList){
+    constructor(name, rda, rdaUnit, estimated, importanceMultiplier, questionList){
         this.name = name
         this.rda = rda
         this.rdaUnit = rdaUnit
@@ -28,22 +28,22 @@ const LEGUME_Q = "Did you eat any Legumes in the last 7 days?"
 var nutriList = {
     //Name: new Nutrient(N"name", rda, rdaUnit, est = 0, impMult, [new Question("asdf?", "ghjk?")])
     //For hierarchy: Importance score should be calculated as "(1 - (estimated/rda)) * importanceMultiplier"
-    NVegetables: new Nutrient("vegetables",       200,    "gram", 0, VERY_IMORTANT, [new Questions(EXOTIC_VEGETABLE_Q, "vegetable_exotic"),[])]),
-    NFruits:     new Nutrient("fruits"    ,       200,    "gram", 0, VERY_IMORTANT, [new Questions(EXOTIC_FRUIT_Q, "fruit_exotic")]),
-    NDairy:      new Nutrient("dairy"     ,         3, "portion", 0, VERY_IMORTANT, [new Question(DAIRY_REPLACEMENT_Q)]),
+    NVegetables: new Nutrient("vegetables",       200,    "gram", 0, VERY_IMORTANT, [new Question(EXOTIC_VEGETABLE_Q, ["exotic_vegetables"],[])]),
+    NFruits:     new Nutrient("fruits"    ,       200,    "gram", 0, VERY_IMORTANT, [new Question(EXOTIC_FRUIT_Q, ["exotic_fruits"],[])]),
+    NDairy:      new Nutrient("dairy"     ,         3, "portion", 0, VERY_IMORTANT, [new Question(DAIRY_REPLACEMENT_Q,[],[])]),
     //To be determined: Fish and/or Legumes yes/no or specificly what?
-    NFish:       new Nutrient("fish"      ,         1, "portion", 0, VERY_IMORTANT, [new Question(FISH_Q)]),
-    NLegumes:    new Nutrient("legumes"   ,         1, "portion", 0, VERY_IMORTANT, [new Question(LEGUME_Q)]),
+    NFish:       new Nutrient("fish"      ,         1, "portion", 0, VERY_IMORTANT, [new Question(FISH_Q,[],[])]),
+    NLegumes:    new Nutrient("legumes"   ,         1, "portion", 0, VERY_IMORTANT, [new Question(LEGUME_Q,[],[])]),
 
                                                                                     //All need replacement questions
-    NNuts:       new Nutrient("nuts"      ,        15,    "gram", 0, VERY_IMORTANT, []),
-    NWholeGrain: new Nutrient("wholeGrain",        90,    "gram", 0, VERY_IMORTANT, []),
-    NTea:        new Nutrient("tea"       ,         3, "portion", 0, VERY_IMORTANT, []),
+    NNuts:       new Nutrient("nuts"      ,        15,    "gram", 0, VERY_IMORTANT, [],[]),
+    NWholeGrain: new Nutrient("wholeGrain",        90,    "gram", 0, VERY_IMORTANT, [],[]),
+    NTea:        new Nutrient("tea"       ,         3, "portion", 0, VERY_IMORTANT, [],[]),
 
     //TBD: Is B12 portion 1 or specific number?
-    NB12:        new Nutrient("b12"       ,         1, "portion", 0, VERY_IMORTANT, []),
-    NOil:        new Nutrient("oil"       ,        50,      "ml", 0,     IMPORTANT, []),
-    NNoOilMoreNuts:new Nutrient("nuts"    ,        30,    "gram", 0,     IMPORTANT, []),
+    NB12:        new Nutrient("b12"       ,         1, "portion", 0, VERY_IMORTANT, [],[]),
+    NOil:        new Nutrient("oil"       ,        50,      "ml", 0,     IMPORTANT, [],[]),
+    NNoOilMoreNuts:new Nutrient("nuts"    ,        30,    "gram", 0,     IMPORTANT, [],[]),
 
     //add vitamin/mineral question go here...
 }
