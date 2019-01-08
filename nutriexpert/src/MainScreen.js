@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+import './App.css';
+import AnimatedWrapper from "./AnimatedWrapper";
 
 import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
-
+import apple from './img/apple.jpg'
 // Be sure to include styles at some point, probably during your bootstraping
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import global from "./Global"
+import Sticky, {StickyContainer} from "react-sticky"
+import Sidebar from "react-sidebar";
+import { FaChild, FaUtensils } from 'react-icons/fa';
+var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
 
 class MainScreen extends Component {
@@ -15,19 +21,36 @@ class MainScreen extends Component {
     this.updateQuestion = this.updateQuestion.bind(this)
     this.goToAdvicePage = this.goToAdvicePage.bind(this)
     this.selectRelevantFoods = this.selectRelevantFoods.bind(this)
+    this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
     this.foodListAll = global.foodlist
     this.state = {
       currentQuestion : "",
       currentFoodlist: [],
       consumed:[],
       update : 0,
+      sidebarOpen: true
       
     }
-    
+    this.handleAdd = this.handleAdd.bind(this);
+  };
+  handleAdd() {
+     var newItems = this.state.items.concat([prompt('Create New Item')]);
+     this.setState({items: newItems});
+  }
+  handleRemove(i) {
+     var newItems = this.state.items.slice();
+     newItems.splice(i, 1);
+     this.setState({items: newItems}); 
   }
 
+  onSetSidebarOpen(open) {
+    this.setState({ sidebarOpen: open });
+  }
   componentDidMount(){
     this.updateQuestion()
+    window.scrollTo(0, 0)
+    window.scrollTo(1, 1)
+    
   }
 
   addToEstimated(food){
@@ -87,7 +110,19 @@ class MainScreen extends Component {
   }
 
   addToSelected(food){
-    this.state.consumed.push(food.d)
+    var inList = false
+    for (var i = 0; i < this.state.consumed.length; i++) {
+      if (this.state.consumed[i] === food.d) {
+          this.state.consumed[i].amount += 1
+          inList = true
+          break
+      }
+    }
+    if (inList == false){
+      food.d.amount = 1
+      this.state.consumed.push(food.d)
+    }
+    
     this.addToEstimated(food.d)
     this.setState({update: this.state.update + 1})
     console.log(this.state.consumed)
@@ -115,101 +150,84 @@ class MainScreen extends Component {
   render() {
 
     const foodls = this.state.currentFoodlist.map((d) => <li>
-      <button onClick={e => this.addToSelected({d})}>
-        <img src={ (d.img) } />
-        <p>{d.name}</p> 
+      <button className="fooditem" onClick={e => this.addToSelected({d})}>
+        <img className = "foodimage" src = {require(`${d.img}`)}/>
+        <p className = 'foodlabel'>{d.name}</p> 
       </button>
     </li>);
 
-    const consumedNames = this.state.consumed.map((d) => <li>
+    const consumedNames = this.state.consumed.map((d) => <li className = "consumedcontainer">
+      <img className = "consumedlistimage" src = {require(`${d.img}`)}/>
       <p>{d.name}</p>
+      <div className = "foodcounter">
+        <span> &nbsp; x &nbsp; </span>
+        <p>{d.amount}</p>
+      </div>
+
+
+      
     </li>);
 
     return (
 
       
-        <React.Fragment  >     
-        <main style = {styles.iconstyle}>
-        <header className="Nutrition Expert">  </header>
-        <img src={logo} className="App-logo" alt="logo" />
-            <p>
+      <div className = "mainwrapper">
+        <div className = "mainbackground"></div>
+        <div className = "rowflexbackground">
+
+
+        
+        <div className = "sidebar">
+        <div className = "profilebuttonbackground">
+          <div className = "rowflexcontainer">
+            <FaChild size  = "1.5vw" className = "profileicon"/>
+            <p className = "profiletext">Profile</p>
+          </div>
+          
+        </div>
+        
+        <div className = "rowflexcontainer">
+          <FaUtensils size  = "1.5vw"/>
+          <p className = "simpletext">Selected:</p>
+        </div >
+          <div className = "scrollablelist" style={{ overflow: 'auto'}}>
+          <ul className = "consumedlist">
+              {consumedNames}
+            </ul>
+          </div>
+
+          
+        </div>
+  
+          <div>
+
+            <p className = "question">
               {this.state.currentQuestion.text}
             </p>
-            <ul >
-              {foodls}
-            </ul>
-            <button className="nextQ" style={{ display: 'block' }} onClick = {this.updateQuestion}>
-              Next
-            </button>
-        </main>
-        <SideNav
+            <div className = "scrollablelistfoods" style={{ overflow: 'auto'}}>
+              <ul className = "fivewidthgrid">
+                {foodls}
+              </ul>
+            </div>
+
             
-            onSelect={(selected) => {
-                // Add your code here
-            }}
-        >
-            <SideNav.Toggle />
-            <SideNav.Nav defaultSelected="profile">
-                <NavItem eventKey="profile">
-                    <NavIcon>
-                        <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em' }} />
-                    </NavIcon>
-                    <NavText onClick = {this.backToProfile}>
-                        Profile
-                        
-                    </NavText>
-                </NavItem>
-                <NavItem eventKey="charts">
-                    <NavIcon>
-                        <i className="fa fa-fw fa-line-chart" style={{ fontSize: '1.75em' }} />
-                    </NavIcon>
-                    <NavText>
-                        Selected
-                    </NavText>
+            
 
-                    <NavItem eventKey="charts/barchart">
-                        <NavText>
-                        <ul>
-                          {consumedNames}
-                         </ul> 
-                        </NavText>
-                    </NavItem>
-                </NavItem>
-            </SideNav.Nav>
-        </SideNav>
-
-        </React.Fragment>
-      
+            <div className = "fixedcircularbutton">
+              <button className="nextbutton"  onClick = {this.updateQuestion}>
+                Next
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        </div>
 
     );
         
   }
 }
 
+const m = AnimatedWrapper(MainScreen)
+export default m;
 
-export default MainScreen;
-
-const styles = {
-  fragment : {
-    display : 'flex',
-    flexDirection : 'column',
-    flex : 0,
-    margin: "auto",
-
-  
-  },
-  iconstyle: {
-    color: "#4E32B7",
-    marginLeft: "auto",
-    marginRight: "auto",
-    display: "flex",
-    flexDirection : 'row',
-    flex: 1
-  },
-  iconstyle2: {
-    color: "black",
-    height: "5vmin",
-    width: "5vmin",
-    marginLeft: "auto"
-  }
-}

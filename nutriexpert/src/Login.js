@@ -1,6 +1,7 @@
 import global from "./Global"
 import React, { Component } from 'react';
 import {HashRouter, Route, withRouter} from "react-router-dom"
+import AnimatedWrapper from "./AnimatedWrapper"
 
 
 
@@ -146,8 +147,12 @@ class Login extends Component {
 
     render() {
         return (
-            <HashRouter>
-                <div className="App3" style={{ backgroundColor: '#54F2C3' }}>
+            <div className='foodbackground'>
+            <h1 className = "title">Welcome to Nutririon Expert!</h1>
+            <h2 className = "subtitle">Please set your personal information</h2>
+    
+                
+                <div >
 
                     <div className="loginmiddle">
                         <header className="loginlabel">
@@ -223,9 +228,10 @@ class Login extends Component {
                         <button className="details2" style={{ display: 'block' }} onClick={this.updateGlobals}>Start</button>
                     </div>
                 </div>
-            </HashRouter>
+            </div>
         );
     }
     
 }
-export default Login
+const l = AnimatedWrapper(Login)
+export default l

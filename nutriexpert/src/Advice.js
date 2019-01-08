@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import global from "./Global"
+import AnimatedWrapper from "./AnimatedWrapper";
+import './App.css';
 
 class Advice extends Component {
     constructor(props){
@@ -12,6 +14,10 @@ class Advice extends Component {
 
     componentDidMount(){
         this.getAdvised()
+        window.scrollTo(0, 0)
+        window.scrollTo(1, 1)
+            
+          
     }
 
     getAdvised(){
@@ -30,22 +36,50 @@ class Advice extends Component {
 
     render() {
         const foodls = this.state.advisedFoodList.map((d) => <li>
-            <button>
-                <img src={ (d.img) } />
-                <p>{d.name}</p> 
-            </button>
-            </li>);
+        <button className="fooditem" >
+          <img className = "foodimage" src = {require(`${d.img}`)}/>
+          <p className = 'foodlabel'>{d.name}</p> 
+        </button>
+      </li>);
+  
         return(
-            <main>
-                <header className="Advices">  </header>
-                <p>You should eat more</p>
-                <p>{global.lackingNutrient}</p>
-                <ul >
-                {foodls}
-                </ul>
-            </main>
+            <div className = "mainwrapper">
+
+                <div className = "advicebackground"></div>
+           
+            
+
+                <div className = "advicemiddle">
+                
+                <p className = "title">You should eat more</p>
+                
+                    <p className = "subtitle">{global.lackingNutrient}</p>
+                    <div className = "scrollablelist" style={{overflow: 'auto'}}>
+                    <ul className = "fivewidthgrid">
+                    {foodls}
+                    </ul>
+                </div>
+
+                </div>
+
+                <div className = "advicemiddlebad">
+                    <p className = "title">You should eat less</p>
+                    <p className = "subtitle">{global.lackingNutrient}</p>
+                    <div className = "scrollablelist" style={{overflow: 'auto'}}>
+
+                        <ul className = "fivewidthgrid">
+                        {foodls}
+                        </ul>
+                    </div>
+                </div>
+
+            
+
+            
+            </div>
             
         )
     }
 }
-export default Advice
+const a = AnimatedWrapper(Advice)
+export default a

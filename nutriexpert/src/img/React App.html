@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)http://localhost:3000/#/MainScreen -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <link rel="shortcut icon" href="http://localhost:3000/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <!--
+      manifest.json provides metadata used when your web app is added to the
+      homescreen on Android. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="http://localhost:3000/manifest.json">
+    <!--
+      Notice the use of  in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>React App</title>
+  <style type="text/css">body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+</style><style type="text/css">
+:root {
+    --primary: 255, 255, 255;
+    --secondary:216, 63, 72;
+    --third:30, 190, 52;
+    --fourth: #FFB835;
+    --primaryFont: black;
+    --secondaryFont: white;
+    --greyFont: #444444;
+  }
+
+
+  .fullbackground{
+    margin-top:0px;
+    background-color: "white";
+    height: 100%;
+    width: 100%
+    }
+
+  .fullheight{
+    height: 100%;
+  }
+
+  h1{
+    text-align: center;
+  }
+
+  h2{
+    text-align: center;
+  }
+
+  .fooditem {
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+    height: 20%;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(var(--primary), 0.7);
+    -webkit-transition: 50ms;
+    transition: 50ms;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  }
+
+  .foodimage{
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+    height: 20%;
+    width: 100%;
+  }
+
+  .fooditem:hover{
+    background-color: rgba(#FFB835, 0.95);
+    background-color: rgba(var(--fourth), 0.95);
+  }
+
+  .fooditem:active{
+
+
+    background-color: #FFB835;
+
+
+    background-color: var(--fourth);
+    color: black;
+    color: var(--primaryFont)
+  }
+
+
+  .App {
+    text-align: center;
+  }
+  
+  .App2 {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: black;
+    background-color: var(--primaryFont);
+
+   
+  }
+  
+  .App3 {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: black;
+    background-color: var(--primaryFont);
+
+    display: flex;
+    align-items: center;
+    justify-content: center
+   
+  }
+  
+  .section {
+    background-color: 255, 255, 255;
+    background-color: var(--primary);
+    min-height: 100vh;
+    text-align: center;
+    color: white;
+    color: var(--secondaryFont);
+    width: 80vw;
+  }
+  
+  .grey {
+    color: #444444;
+    color: var(--greyFont);
+  }
+  h4 {
+    text-align: left
+  }
+  .account{
+    width: 50%;
+    text-align: left;
+  }
+  
+  .addproduct{
+    width: 50%;
+  }
+  
+  .form {
+    margin-left: auto;
+    margin-right: auto
+  }
+  
+  .menuoption {
+    text-decoration: none;
+    font-size: 3.0vmin;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    padding: 0.5vmin;
+    padding-left: 1vmin;
+    margin: 0;
+    padding: 2vmin;
+    font-weight: 400
+  }
+  
+  
+  .details {
+    font-size: 2.0vmin;
+    background-color: white;
+    background-color: var(--secondaryFont);
+    width: 100%;
+    color: 255, 255, 255;
+    color: var(--primary);
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2vmin;
+    border-radius: 0.5vmin;
+    font-weight: 500
+  }
+  .details2 {
+    font-size: 2.0vmin;
+    background-color: rgb(30, 190, 52);
+    background-color: rgb(var(--third));
+    width: 60%;
+    color: 255, 255, 255;
+    color: var(--primary);
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2vmin;
+    font-weight: bold;
+    margin-top: 1vmin;
+  }
+
+    
+  .details2:hover{
+    background-color: #FFB835;
+    background-color: var(--fourth);
+  }
+
+  .details2:active{
+    width: 70%;
+    background-color: 255, 255, 255;
+    background-color: var(--primary);
+  }
+  
+  .changeButtonActive {
+    height: auto;
+    padding: auto;
+    font-size: 2vmin;
+    background-color: #FFB835;
+    background-color: var(--fourth);
+    color: 255, 255, 255;
+    color: var(--primary);
+    font-weight: 500;
+    padding: 1vmin
+  }
+  
+  .changeButton {
+    height: 0;
+    padding: 0;
+    font-size: 0;
+  }
+  
+  .details3 {
+    font-size: 2.0vmin;
+    background-color: 30, 190, 52;
+    background-color: var(--third);
+    width: 60%;
+    color: white;
+    color: var(--secondaryFont);
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2vmin;
+    font-weight: bold;
+    margin-top: 1vmin;
+    box-sizing: border-box;
+    border-radius: 0.5vmin
+  }
+  
+  .producttypes {
+    background-color: #FFB835;
+    background-color: var(--fourth);
+    padding: 5vmin;
+    height: 10vmin;
+    border-radius: 0.5vmin;
+    margin: 1vmin;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: content-box;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto
+  }
+  
+  li { 
+    list-style-type: none;
+    margin-left: 0
+  }
+  
+  
+  .closeAll {
+    background-color: 30, 190, 52;
+    background-color: var(--third);
+    color: white;
+    color: var(--secondaryFont);
+    padding: 1vmin;
+    font-size: 2vmin;
+    font-weight: 500;
+    margin-top: 5vmin;
+  }
+  
+  h6 {
+    display: inline-block;
+    margin: 1vmin;
+    font-size: 2vmin;
+    color: #444444;
+    color: var(--greyFont);
+  }
+  h7 {
+    display: inline-block;
+    margin: 1vmin;
+    font-size: 2vmin;
+    color:  255, 255, 255;
+    color:  var(--primary);
+    font-weight: 500
+  }
+  h8 {
+    display: inline-block;
+    margin: 1vmin;
+    font-size: 2vmin;
+    color: white;
+    color: var(--secondaryFont);
+    font-weight: 500
+  }
+  
+  
+  .usersfont {
+    font-size: 0
+  }
+  
+  .usersfontActive {
+    font-size: 2vmin
+  }
+  
+  .productfont {
+    font-size: 0
+  }
+  
+  .productfontActive {
+    font-size: 2vmin
+  }
+  
+  .productfont2 {
+    font-size: 0
+  }
+  
+  .productfont2Active {
+    font-size: 2vmin;
+    margin-left: auto
+  }
+  
+  .productitem {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center; 
+    background-color: 216, 63, 72; 
+    background-color: var(--secondary);
+    margin-bottom: 0;
+    padding: 0;
+    border-radius: 0.5vmin;
+    height: 0;
+    -webkit-transition: 50ms;
+    transition: 50ms
+  }
+  
+  .productitemActive {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center; 
+    background-color: 216, 63, 72; 
+    background-color: var(--secondary);
+    margin-bottom: 1vmin;
+    padding: 1vmin;
+    border-radius: 0.5vmin;
+    height: 5vmin;
+    -webkit-transition: padding 800ms, height 200ms;
+    transition: padding 800ms, height 200ms;
+    box-shadow: 2px 4px 10px -4px rgba(0,0,0,0.67);
+  }
+  
+  .orderitemActive {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center; 
+    background-color: 216, 63, 72; 
+    background-color: var(--secondary);
+    margin-bottom: 1vmin;
+    padding: 1vmin;
+    border-radius: 0.5vmin;
+    height: 5vmin;
+    -webkit-transition: padding 800ms, height 200ms;
+    transition: padding 800ms, height 200ms;
+    box-shadow: 2px 4px 10px -4px rgba(0,0,0,0.67);
+  }
+  .productitemActive2 {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center; 
+    background-color: #FFB835; 
+    background-color: var(--fourth);
+    margin-bottom: 1vmin;
+    padding: 1vmin;
+    border-radius: 0.5vmin;
+    height: 5vmin;
+    -webkit-transition: padding 800ms, height 200ms;
+    transition: padding 800ms, height 200ms;
+    box-shadow: 2px 4px 10px -4px rgba(0,0,0,0.67);
+  }
+  .useritemActive {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center; 
+    background-color: 30, 190, 52; 
+    background-color: var(--third);
+    margin-bottom: 1vmin;
+    padding: 1vmin;
+    border-radius: 0.5vmin;
+    height: 5vmin;
+    -webkit-transition: padding 800ms, height 200ms;
+    transition: padding 800ms, height 200ms;
+    box-shadow: 2px 4px 10px -4px rgba(0,0,0,0.67);
+  }
+  
+  .productitem2 {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center; 
+    background-color: #FFB835; 
+    background-color: var(--fourth);
+    margin-bottom: 0;
+    padding: 0;
+    border-radius: 0;
+    height: 0;
+    -webkit-transition: 50ms;
+    transition: 50ms;
+  }
+  .useritem {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center; 
+    background-color: 30, 190, 52; 
+    background-color: var(--third);
+    margin-bottom: 0;
+    padding: 0;
+    border-radius: 0.5vmin;
+    height: 0;
+    -webkit-transition: 50ms;
+    transition: 50ms;
+  }
+  
+  .categoryimage{
+    width: 6vmin;
+    display: inline-block;
+    margin-right: 2vmin;
+    background-color: 216, 63, 72;
+    background-color: var(--secondary);
+    padding: 2vmin;
+    border-radius: 2vmin;
+    box-shadow: 2px 4px 10px -4px rgba(0,0,0,0.67);
+  }
+  
+  .list {
+    height: 0;
+    margin: 0
+  }
+  
+  .listActive {
+    height: auto;
+  }
+  
+  .categoryimage2{
+    width: 3vmin;
+    display: inline-block;
+    margin-right: 2vmin;
+    margin-left: 2vmin;
+    height: 0;
+  }
+  
+  .categoryimage2Active{
+    height: auto;
+    display: inline-block;
+    margin-right: 2vmin;
+    margin-left: 2vmin;
+    max-height: 4vmin;
+  }
+  
+  .productpicturecontActive {
+    width: 10%
+  }
+  
+  .priceActive {
+    font-size: 2vmin;
+    margin-left: auto;
+    font-weight: 700
+  }
+  
+  .price {
+    font-size: 0;
+    margin-left: auto;
+  }
+  
+  .price2Active {
+    font-size: 2vmin;
+    margin-left: 1vmin;
+    font-weight: 700
+  }
+  
+  .price2 {
+    font-size: 0;
+    margin-left: 5vmin;
+  }
+  
+  .nameActive {
+    font-size: 2vmin;
+  }
+  
+  .name {
+    font-size: 0;
+  }
+  
+  .usersbutton {
+    background-color: 30, 190, 52;
+    background-color: var(--third);
+    color: white;
+    color: var(--secondaryFont);
+    font-size: 2vmin;
+    font-weight: 500;
+    margin-left: 1vmin;
+    border-radius: 0.5vmin
+  }
+  
+  .productsbutton {
+    background-color: #FFB835;
+    background-color: var(--fourth);
+    color: 255, 255, 255;
+    color: var(--primary);
+    font-size: 2vmin;
+    font-weight: 500;
+    margin-left: 1vmin;
+    border-radius: 0.5vmin
+  }
+  
+  .productscontainer {
+    width: 80%;
+  }
+  
+  .section {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+  }
+  
+  .top {
+    align-items: flex-start
+  }
+  
+  h3 {
+    vertical-align: middles;
+    margin: 0;
+    text-align: left;
+    color: 255, 255, 255;
+    color: var(--primary);
+    font-size: 3vmin;
+    font-weight: 500;
+    display: inline-block;
+  }
+  
+  @media screen and (min-height: 75vw) {
+    .menuoption {
+       font-size: 1.8vh;
+    }
+  }
+  
+  ul {
+    padding: 0;
+  }
+
+  .fivewidthgrid{
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 10px;
+  }
+  
+  h4 {
+    font-size: 2vmin;
+    margin-left: 3%;
+  }
+  
+  h5 {
+    font-size: 2vmin;
+    margin-left: 5%;
+    text-align: left;
+  }
+  
+  .balance {
+    background-color: #FFB835;
+    background-color: var(--fourth);
+  }
+  
+  .logout {
+    background-color: 30, 190, 52;
+    background-color: var(--third);
+    color: white;
+    color: var(--secondaryFont);
+    margin-top: 15vmin;
+    text-align: center;
+    box-sizing: content-box;
+    font-weight: bold
+  }
+  
+  .logout2 {
+    background-color: #FFB835;
+    background-color: var(--fourth);
+    color: 255, 255, 255;
+    color: var(--primary);
+    margin-top: 15vmin;
+    text-align: center;
+    border: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    font-weight: bold
+  }
+  
+  
+  select ,input,button{
+    box-sizing: border-box;
+    border-radius: 0.5vmin;
+    border: 0
+  }
+  
+  
+  button {
+    border: 0
+  }
+  
+  .foodbackground{
+      background-image: url(/static/media/background.74f02a7c.jpg);
+        width: 100%;
+        height: 100%;
+        margin-top: 0%
+  }
+
+  .gymbackground{
+    background-image: url(/static/media/muscles.71c02a47.jpg);
+      width: 100%;
+      height: 100%;
+      margin-top: 0%
+}
+  
+  .logininput {
+    font-size: 2.0vmin;
+    background-color: white;
+    background-color: var(--secondaryFont);
+    width: 60%;
+    color: black;
+    color: var(--primaryFont);
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2vmin;
+    font-weight: 500;
+    margin-top: 1vmin;
+  }
+  
+  .productinput {
+    font-size: 2.0vmin;
+    background-color: white;
+    background-color: var(--secondaryFont);
+    width: 100%;
+    color: 255, 255, 255;
+    color: var(--primary);
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 500;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2vmin
+  }
+  
+  .productinput2 {
+    font-size: 2.0vmin;
+    background-color: white;
+    background-color: var(--secondaryFont);
+    width: 100%;
+    color: 255, 255, 255;
+    color: var(--primary);
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 500;
+    height: 6.5vmin;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .select {
+    font-size: 2.0vmin;
+    background-color: white;
+    background-color: var(--secondaryFont);
+    width: 20%;
+    font-weight: 500;
+    height: 4vmin;
+  }
+  
+  .loginmiddle{
+  text-align: center;
+  background-color: rgba(216, 63, 72, 0.9);
+  background-color: rgba(var(--secondary), 0.9);
+  padding: 3vmin;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 60px;
+  border-radius: 25px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+
+
+  }
+  
+  .foodlabel{
+    color: black;
+    color: var(--primaryFont);
+    font-size: 2.0vmin;
+    margin-top: 1vmin;
+    font-weight: bold
+  }
+
+  .loginlabel{
+    color: #444444;
+    color: var(--greyFont);
+    font-size: 2.0vmin;
+    margin-top: 1vmin;
+    font-weight: bold
+  }
+  
+  .bepart {
+    font-weight: bold;
+    font-size: 4vmin;
+    margin-top: 3vmin;
+    color: #444444;
+    color: var(--greyFont);
+  }
+  .sidebar {
+    width: 20vw;
+    min-height: 100vh;
+    display: block;
+    left: 0;
+    position: fixed;
+    background-color: 216, 63, 72;
+    background-color: var(--secondary);
+    text-align: center;
+  }
+  
+  .options {
+    margin-top: 5vmin;
+    font-weight: bold;
+  }
+  
+  .menu {
+    margin-top: 5vmin
+  }
+  
+  
+  h4,h5{
+    margin: 1.5vmin
+  }
+  
+  html,body {
+    margin: 0;
+    background-color: rgba(0,0,0,0);
+    overflow-x: hidden;
+  }
+  
+  a:link {
+    text-decoration: none;
+  }
+  
+  a:visited {
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: none;
+  }
+  
+  a:active {
+    text-decoration: none;
+    color: white;
+    color: var(--secondaryFont)
+  }
+  
+  .active {
+    background-color: 255, 255, 255;
+    background-color: var(--primary);
+    color: white;
+    color: var(--secondaryFont)
+  }
+  
+  .visited {
+    background-color: 255, 255, 255;
+    background-color: var(--primary);
+    color: white;
+    color: var(--secondaryFont);
+    text-decoration: none
+  }
+  
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width:100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+  }
+  
+  .modal-main {
+    position:fixed;
+    background: 216, 63, 72;
+    background: var(--secondary);
+    text-align: center;
+    padding: 5vmin;
+    width: 80%;
+    height: auto;
+    top:50%;
+    left:50%;
+    -webkit-transform: translate(-50%,-50%);
+            transform: translate(-50%,-50%);
+  }
+  
+  .changeproduct {
+    font-size: 2vmin;
+    padding: 1vmin;
+    margin: 1vmin;
+    color: #444444;
+    color: var(--greyFont);
+    width: 20%;
+    background-color: white;
+    background-color: var(--secondaryFont);
+  }
+  
+  .update{
+    font-size: 2vmin;
+    margin: 1vmin;
+    color: white;
+    color: var(--secondaryFont);
+    background-color: 255, 255, 255;
+    background-color: var(--primary);
+    padding: 1vmin;
+    font-weight: 500;
+    min-width: 10%
+  }
+  .close{
+    font-size: 2vmin;
+    margin: 1vmin;
+    color: white;
+    color: var(--secondaryFont);
+    background-color: 30, 190, 52;
+    background-color: var(--third);
+    padding: 1vmin;
+    font-weight: 500;
+    min-width: 10%
+  }
+  
+  .display-block {
+    display: block;
+  }
+  
+  .display-none {
+    display: none;
+  }</style><style type="text/css">/*! react-sidenav v0.4.5 | (c) 2018 Trend Micro Inc. | MIT | https://github.com/trendmicro-frontend/react-sidenav */
+.sidenav---sidenav---_2tBP {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1006;
+  min-width: 64px;
+  background: #db3d44;
+  -webkit-transition: min-width 0.15s;
+  transition: min-width 0.15s;
+}
+.sidenav---sidenav---_2tBP.sidenav---collapsed---LQDEv .sidenav---sidenav-nav---3tvij .sidenav---sidenav-navitem---uwIJ- .sidenav---sidenav-subnav---1EN61 {
+  display: none;
+}
+.sidenav---sidenav---_2tBP.sidenav---collapsed---LQDEv .sidenav---sidenav-nav---3tvij .sidenav---sidenav-navitem---uwIJ-:hover > .sidenav---sidenav-subnav---1EN61 {
+  display: block;
+}
+.sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL {
+  min-width: 240px;
+}
+.sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-nav---3tvij > .sidenav---sidenav-navitem---uwIJ- .sidenav---navicon---3gCRo + .sidenav---navtext---1AE_f {
+  display: inline-block;
+}
+.sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-nav---3tvij > .sidenav---sidenav-navitem---uwIJ-.sidenav---expandable---3_dr7 > .sidenav---navitem---9uL5T {
+  cursor: pointer;
+}
+.sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-subnav---1EN61 {
+  position: static;
+  border: none;
+  float: left;
+  clear: both;
+  width: 100%;
+  background: transparent;
+  overflow: hidden;
+  box-shadow: none;
+}
+.sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-nav---3tvij > .sidenav---sidenav-navitem---uwIJ-.sidenav---expanded---1KdUL .sidenav---sidenav-subnav---1EN61 {
+  display: block;
+}
+.sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-subnav---1EN61 {
+  display: none;
+}
+.sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-subnav---1EN61 > .sidenav---sidenav-subnavitem---1cD47 {
+  position: relative;
+}
+.sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-subnav---1EN61 > .sidenav---sidenav-subnavitem---1cD47::before {
+  content: " ";
+  width: 100%;
+  height: 28px;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+}
+.sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-subnav---1EN61 > .sidenav---sidenav-subnavitem---1cD47:first-child {
+  display: none;
+}
+.sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-subnav---1EN61 > .sidenav---sidenav-subnavitem---1cD47:hover::before {
+  background: #fff;
+  opacity: 0.15;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=15)";
+  filter: alpha(opacity=15);
+}
+.sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-subnav---1EN61 > .sidenav---sidenav-subnavitem---1cD47::before {
+  content: " ";
+  width: 100%;
+  height: 28px;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+}
+.sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-subnav---1EN61 > .sidenav---sidenav-subnavitem---1cD47.sidenav---selected---1EK3y > .sidenav---navitem---9uL5T {
+  color: #fff;
+}
+.sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-subnav---1EN61 > .sidenav---sidenav-subnavitem---1cD47.sidenav---selected---1EK3y > .sidenav---navitem---9uL5T::before {
+  content: " ";
+  width: 2px;
+  height: 20px;
+  left: 10px;
+  top: 4px;
+  position: absolute;
+  border-left: 2px #fff solid;
+}
+.sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-subnav---1EN61 > .sidenav---sidenav-subnavitem---1cD47:hover > .sidenav---navitem---9uL5T {
+  background: transparent;
+  color: #fff;
+}
+.sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-subnav---1EN61 > .sidenav---sidenav-subnavitem---1cD47 > .sidenav---navitem---9uL5T {
+  color: #f9dcdd;
+  padding: 0 14px 0 20px;
+  line-height: 28px;
+}
+.sidenav---sidenav-toggle---1KRjR {
+  position: relative;
+  float: left;
+  width: 64px;
+  height: 64px;
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  background-image: none;
+  border: 0;
+  border-radius: 0;
+  cursor: pointer;
+}
+.sidenav---sidenav-toggle---1KRjR:focus {
+  outline: none;
+}
+.sidenav---sidenav-toggle---1KRjR .sidenav---icon-bar---u1f02 {
+  display: block;
+  width: 20px;
+  height: 2px;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 1px;
+  -webkit-transition: all 0.15s;
+  transition: all 0.15s;
+  opacity: 0.7;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+  filter: alpha(opacity=70);
+}
+.sidenav---sidenav-toggle---1KRjR .sidenav---icon-bar---u1f02 + .sidenav---icon-bar---u1f02 {
+  margin-top: 4px;
+}
+.sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-toggle---1KRjR .sidenav---icon-bar---u1f02 {
+  width: 25px;
+}
+.sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-toggle---1KRjR .sidenav---icon-bar---u1f02:nth-child(1) {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-toggle---1KRjR .sidenav---icon-bar---u1f02:nth-child(2) {
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+}
+.sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-toggle---1KRjR .sidenav---icon-bar---u1f02:nth-child(3) {
+  margin-top: -8px;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+.sidenav---sidenav-nav---3tvij {
+  float: left;
+  padding: 0;
+  margin: 0;
+  clear: both;
+  list-style: none;
+  width: 100%;
+}
+.sidenav---sidenav-nav---3tvij > .sidenav---sidenav-navitem---uwIJ- {
+  clear: both;
+  position: relative;
+}
+.sidenav---sidenav-nav---3tvij > .sidenav---sidenav-navitem---uwIJ-.sidenav---highlighted---oUx9u > .sidenav---navitem---9uL5T {
+  cursor: default;
+}
+.sidenav---sidenav-nav---3tvij > .sidenav---sidenav-navitem---uwIJ-:hover > .sidenav---navitem---9uL5T::after {
+  background: #fff;
+  opacity: 0.15;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=15)";
+  filter: alpha(opacity=15);
+}
+.sidenav---sidenav-nav---3tvij > .sidenav---sidenav-navitem---uwIJ-.sidenav---highlighted---oUx9u > .sidenav---navitem---9uL5T::after,
+.sidenav---sidenav-nav---3tvij > .sidenav---sidenav-navitem---uwIJ-:hover.sidenav---highlighted---oUx9u > .sidenav---navitem---9uL5T::after {
+  background: #000;
+  opacity: 0.2;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+  filter: alpha(opacity=20);
+}
+.sidenav---sidenav-nav---3tvij > .sidenav---sidenav-navitem---uwIJ-.sidenav---highlighted---oUx9u.sidenav---expanded---1KdUL > .sidenav---navitem---9uL5T::after,
+.sidenav---sidenav-nav---3tvij > .sidenav---sidenav-navitem---uwIJ-:hover.sidenav---highlighted---oUx9u.sidenav---expanded---1KdUL > .sidenav---navitem---9uL5T::after {
+  background: #000;
+  opacity: 0.25;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=25)";
+  filter: alpha(opacity=25);
+}
+.sidenav---sidenav-nav---3tvij > .sidenav---sidenav-navitem---uwIJ-.sidenav---highlighted---oUx9u.sidenav---selected---1EK3y.sidenav---expanded---1KdUL > .sidenav---navitem---9uL5T::after,
+.sidenav---sidenav-nav---3tvij > .sidenav---sidenav-navitem---uwIJ-:hover.sidenav---highlighted---oUx9u.sidenav---selected---1EK3y.sidenav---expanded---1KdUL > .sidenav---navitem---9uL5T::after {
+  background: #000;
+  opacity: 0.2;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+  filter: alpha(opacity=20);
+}
+.sidenav---sidenav-nav---3tvij > .sidenav---sidenav-navitem---uwIJ-:hover > .sidenav---navitem---9uL5T .sidenav---navicon---3gCRo,
+.sidenav---sidenav-nav---3tvij > .sidenav---sidenav-navitem---uwIJ-.sidenav---highlighted---oUx9u > .sidenav---navitem---9uL5T .sidenav---navicon---3gCRo {
+  opacity: 1;
+  -ms-filter: none;
+  -webkit-filter: none;
+          filter: none;
+}
+.sidenav---sidenav-nav---3tvij > .sidenav---sidenav-navitem---uwIJ-:hover > .sidenav---navitem---9uL5T .sidenav---navicon---3gCRo,
+.sidenav---sidenav-nav---3tvij > .sidenav---sidenav-navitem---uwIJ-:hover > .sidenav---navitem---9uL5T .sidenav---navtext---1AE_f,
+.sidenav---sidenav-nav---3tvij > .sidenav---sidenav-navitem---uwIJ-.sidenav---highlighted---oUx9u > .sidenav---navitem---9uL5T .sidenav---navicon---3gCRo,
+.sidenav---sidenav-nav---3tvij > .sidenav---sidenav-navitem---uwIJ-.sidenav---highlighted---oUx9u > .sidenav---navitem---9uL5T .sidenav---navtext---1AE_f {
+  color: #fff;
+}
+.sidenav---sidenav-nav---3tvij > .sidenav---sidenav-navitem---uwIJ-:hover > .sidenav---navitem---9uL5T .sidenav---navicon---3gCRo > *,
+.sidenav---sidenav-nav---3tvij > .sidenav---sidenav-navitem---uwIJ-:hover > .sidenav---navitem---9uL5T .sidenav---navtext---1AE_f > *,
+.sidenav---sidenav-nav---3tvij > .sidenav---sidenav-navitem---uwIJ-.sidenav---highlighted---oUx9u > .sidenav---navitem---9uL5T .sidenav---navicon---3gCRo > *,
+.sidenav---sidenav-nav---3tvij > .sidenav---sidenav-navitem---uwIJ-.sidenav---highlighted---oUx9u > .sidenav---navitem---9uL5T .sidenav---navtext---1AE_f > * {
+  color: #fff;
+}
+.sidenav---sidenav-nav---3tvij > .sidenav---sidenav-navitem---uwIJ- > .sidenav---navitem---9uL5T {
+  position: relative;
+  display: block;
+  line-height: 50px;
+  height: 50px;
+  white-space: nowrap;
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+}
+.sidenav---sidenav-nav---3tvij > .sidenav---sidenav-navitem---uwIJ- > .sidenav---navitem---9uL5T:focus {
+  outline: 0;
+}
+.sidenav---sidenav-nav---3tvij > .sidenav---sidenav-navitem---uwIJ- > .sidenav---navitem---9uL5T::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background: #fff;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  z-index: -1;
+}
+.sidenav---sidenav-nav---3tvij > .sidenav---sidenav-navitem---uwIJ- > .sidenav---navitem---9uL5T .sidenav---navicon---3gCRo,
+.sidenav---sidenav-nav---3tvij > .sidenav---sidenav-navitem---uwIJ- > .sidenav---navitem---9uL5T .sidenav---navtext---1AE_f {
+  color: #f9dcdd;
+}
+.sidenav---sidenav-nav---3tvij > .sidenav---sidenav-navitem---uwIJ- > .sidenav---navitem---9uL5T .sidenav---navicon---3gCRo > *,
+.sidenav---sidenav-nav---3tvij > .sidenav---sidenav-navitem---uwIJ- > .sidenav---navitem---9uL5T .sidenav---navtext---1AE_f > * {
+  color: #f9dcdd;
+}
+.sidenav---sidenav-nav---3tvij > .sidenav---sidenav-navitem---uwIJ- > .sidenav---navitem---9uL5T .sidenav---navicon---3gCRo {
+  display: block;
+  float: left;
+  width: 64px;
+  height: 50px;
+  margin-right: -6px;
+  vertical-align: top;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: transparent;
+  opacity: 0.7;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+  filter: alpha(opacity=70);
+  line-height: 50px;
+  text-align: center;
+}
+.sidenav---sidenav-nav---3tvij > .sidenav---sidenav-navitem---uwIJ- > .sidenav---navitem---9uL5T .sidenav---navicon---3gCRo + .sidenav---navtext---1AE_f {
+  display: none;
+}
+.sidenav---sidenav-subnav---1EN61 {
+  min-width: 200px;
+  position: absolute;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  top: 0;
+  left: 64px;
+  background: #fff;
+  border: 1px #bbb solid;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.15);
+}
+.sidenav---sidenav-subnav---1EN61 > .sidenav---sidenav-subnavitem---1cD47:first-child {
+  margin: 0 24px;
+  line-height: 48px;
+  border-bottom: 1px #ccc solid;
+  font-size: 14px;
+  font-weight: normal;
+}
+.sidenav---sidenav-subnav---1EN61 > .sidenav---sidenav-subnavitem---1cD47:nth-child(2) {
+  margin-top: 8px;
+}
+.sidenav---sidenav-subnav---1EN61 > .sidenav---sidenav-subnavitem---1cD47:last-child {
+  margin-bottom: 8px;
+}
+.sidenav---sidenav-subnav---1EN61 > .sidenav---sidenav-subnavitem---1cD47.sidenav---selected---1EK3y > .sidenav---navitem---9uL5T {
+  color: #db3d44;
+  font-weight: bold;
+  background: none;
+  cursor: default;
+}
+.sidenav---sidenav-subnav---1EN61 > .sidenav---sidenav-subnavitem---1cD47.sidenav---selected---1EK3y > .sidenav---navitem---9uL5T:hover {
+  background: #fff;
+}
+.sidenav---sidenav-subnav---1EN61 > .sidenav---sidenav-subnavitem---1cD47 > .sidenav---navitem---9uL5T {
+  display: block;
+  text-decoration: none;
+  color: #222;
+  font-size: 13px;
+  line-height: 30px;
+  padding: 0 24px;
+  cursor: pointer;
+}
+.sidenav---sidenav-subnav---1EN61 > .sidenav---sidenav-subnavitem---1cD47 > .sidenav---navitem---9uL5T:hover {
+  background: #eee;
+}
+.sidenav---sidenav-subnav---1EN61 > .sidenav---sidenav-subnavitem---1cD47 > .sidenav---navitem---9uL5T:focus {
+  outline: 0;
+}
+.sidenav---sidenav---_2tBP {
+  box-sizing: border-box;
+  line-height: 20px;
+}
+.sidenav---sidenav---_2tBP *,
+.sidenav---sidenav---_2tBP *:before,
+.sidenav---sidenav---_2tBP *:after {
+  box-sizing: inherit;
+}</style><script charset="utf-8" src="./React App_files/main.910ea8fc40ca46d7474f.hot-update.js"></script></head>
+  <body>
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <div id="root"><div class="ExpertSystem"><div class="animated-page-wrapper" style="opacity: 1; transform: translate3d(0px, 0px, 0px);"><div class="foodbackground"><p>What meats did you eat?</p><ul class="fivewidthgrid"><li><button class="fooditem"><img class="foodimage" src="./React App_files/chicken.3232617c.jpg"><p class="foodlabel">chicken</p></button></li><li><button class="fooditem"><img class="foodimage" src="./React App_files/chicken.3232617c.jpg"><p class="foodlabel">chicken2</p></button></li><li><button class="fooditem"><img class="foodimage" src="./React App_files/chicken.3232617c.jpg"><p class="foodlabel">chicken3</p></button></li><li><button class="fooditem"><img class="foodimage" src="./React App_files/chicken.3232617c.jpg"><p class="foodlabel">chicken4</p></button></li><li><button class="fooditem"><img class="foodimage" src="./React App_files/chicken.3232617c.jpg"><p class="foodlabel">chicken5</p></button></li><li><button class="fooditem"><img class="foodimage" src="./React App_files/chicken.3232617c.jpg"><p class="foodlabel">chicken6</p></button></li><li><button class="fooditem"><img class="foodimage" src="./React App_files/beef.12ac4f92.jpg"><p class="foodlabel">beef</p></button></li></ul><button class="details2">Next</button><nav class="fullheight sidenav---sidenav---_2tBP sidenav---collapsed---LQDEv"><button role="button" class="sidenav---sidenav-toggle---1KRjR" aria-expanded="false"><span class="sidenav---icon-bar---u1f02"></span><span class="sidenav---icon-bar---u1f02"></span><span class="sidenav---icon-bar---u1f02"></span></button><div role="menu" class="sidenav---sidenav-nav---3tvij"><div role="presentation" class="sidenav---sidenav-navitem---uwIJ- sidenav---selected---1EK3y sidenav---highlighted---oUx9u"><div class="sidenav---navitem---9uL5T" role="menuitem" tabindex="-1"><div class="sidenav---navicon---3gCRo"><i class="fa fa-fw fa-home" style="font-size: 1.75em;"></i></div><div class="sidenav---navtext---1AE_f">Profile</div></div></div><div role="presentation" class="sidenav---sidenav-navitem---uwIJ- sidenav---expandable---3_dr7"><div class="sidenav---navitem---9uL5T" role="menuitem" tabindex="-1"><div class="sidenav---navicon---3gCRo"><i class="fa fa-fw fa-line-chart" style="font-size: 1.75em;"></i></div><div class="sidenav---navtext---1AE_f">Selected</div></div><div role="menu" class="sidenav---sidenav-subnav---1EN61"><div role="heading" class="sidenav---sidenav-subnavitem---1cD47">Selected</div><div role="presentation" class="sidenav---sidenav-subnavitem---1cD47"><div class="sidenav---navitem---9uL5T" role="menuitem" tabindex="-1"><div class="sidenav---navtext---1AE_f"><ul></ul></div></div></div></div></div></div></nav></div></div></div></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  <script src="./React App_files/bundle.js"></script><script src="./React App_files/0.chunk.js"></script><script src="./React App_files/main.chunk.js"></script><script src="./React App_files/main.cf9a2983ebd2556b1fab.hot-update.js"></script>
+
+</body></html>
