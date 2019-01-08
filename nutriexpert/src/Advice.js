@@ -24,29 +24,43 @@ class Advice extends Component {
         this.getAdvised = this.getAdvised.bind(this)
         this.getWarning = this.getWarning.bind(this)
         this.state = {
+            lackingNutrient : "",
+            negativeComment : "", 
             advisedFoodList : [],
             negativeFoodList : []
         }
     }
 
     componentDidMount(){
+
         this.getAdvised()
         this.getWarning()
         window.scrollTo(0, 0)
         window.scrollTo(1, 1)
+
             
           
     }
 
     getAdvised(){
         var a = []
+        var l = global.lackingNutrient
+        if(l != null){
+            l = l.substr(1)
+        }
+      
+        console.log("lacking string")
+        console.log(l)
+        console.log(typeof l)
         for (var i in global.foodlist){
             if (global.foodlist[i].nutrilist[global.lackingNutrient] > 0){
                 a.push(global.foodlist[i])
             }
         }
         this.setState({
-            advisedFoodList: a
+            advisedFoodList: a,
+            lackingNutrient: l,
+            
         })
         console.log("advised foods")
         console.log(a)
@@ -54,6 +68,7 @@ class Advice extends Component {
 
     getWarning(){
         var a = []
+        var comment = "based on what you have eaten"
         for (var i in global.consumedList){
             for (var j in global.consumedList[i].constraints){
 
@@ -63,9 +78,11 @@ class Advice extends Component {
         }
         if (a.length ==0){
             a = hardCodedWarningList
+            comment = "as a general advice"
         }
         this.setState({
-            negativeFoodList: a
+            negativeFoodList: a,
+            negativeComment : comment
         })
         console.log("warning foods")
         console.log(a)
@@ -97,7 +114,7 @@ class Advice extends Component {
                 
                 <p className = "title">You should eat more</p>
                 
-                    <p className = "subtitle">{global.lackingNutrient}</p>
+                    <p className = "subtitle">{this.state.lackingNutrient}</p>
                     <div className = "scrollablelist" style={{overflow: 'auto'}}>
                     <ul className = "fivewidthgrid">
                     {foodls}
@@ -107,8 +124,8 @@ class Advice extends Component {
                 </div>
 
                 <div className = "advicemiddlebad">
-                    <p className = "title">You should eat less</p>
-                    <p className = "subtitle">{global.lackingNutrient}</p>
+                    <p className = "title">You should be careful with</p>
+                    <p className = "subtitle">{this.state.negativeComment}</p>
                     <div className = "scrollablelist" style={{overflow: 'auto'}}>
 
                         <ul className = "fivewidthgrid">

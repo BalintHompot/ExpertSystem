@@ -4,12 +4,13 @@ import n from "./Nutrient"
 
 class Global {
     constructor(){
-        this.goal = null
+        //this.goal = null
         this.constraints = []
         this.age = 0
-        this.height = 0
-        this.weight = 0
-        this.gender = null
+        this.name = "name"
+        //this.height = 0
+        //this.weight = 0
+        //this.gender = null
         this.foodlist = f.foodlist
         this.questionList = q.questionList
         this.nutrients = n.nutriList
@@ -20,14 +21,20 @@ class Global {
             key = key.toString()
             console.log("value")
             console.log(value)
-            if (key == "goal"){
+            /*if (key == "goal"){
                 this.goal = value
                 return
             }
+            */
             if (key == "constraints"){
                 this.constraints = value
                 return
             }
+            if (key == "name"){
+                this.name = value
+                return
+            }
+            /*
             if (key == "weight"){
                 this.weight = value
                 return
@@ -44,6 +51,7 @@ class Global {
                 this.age = value
                 return
             }
+            */
             console.log("prop not found")
             
         }

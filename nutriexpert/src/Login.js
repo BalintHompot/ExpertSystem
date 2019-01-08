@@ -9,7 +9,17 @@ class Login extends Component {
     constructor(props){
         super(props)
         this.state = {
-            constraints : []
+            update:0,
+            constraints : [],
+            selected : {
+                gluten: false,
+                milk : false,
+                peanut : false,
+                nuts: false,
+                soy : false,
+                egg : false,
+
+            }
         }
         this.clearByConstraints = this.clearByConstraints.bind(this)
         this.setAge = this.setAge.bind(this)
@@ -23,7 +33,18 @@ class Login extends Component {
         this.checkIfValid = this.checkIfValid.bind(this)
         this.handleOptionChange = this.handleOptionChange.bind(this)
         this.goToMainPage = this.goToMainPage.bind(this)
+        this.navigation2 = this.navigation2.bind(this)
+
     }
+
+    navigation2(e){
+        l = this.state.constraints
+        l.push(e.d)
+        this.setState({
+            constraints : l
+        })
+        console.log(this.state)
+      }
 
     goToMainPage(){
         console.log(global.questionList)
@@ -79,10 +100,27 @@ class Login extends Component {
         }
     }
 
+
+
     handleOptionChange(e) {
+        console.log("handling change")
+        for (var i in this.state.constraints){
+            if(this.state.constraints[i] == e.target.value){
+                console.log("already checked")
+                this.state.constraints.splice(i, 1)
+                this.state.selected[e.target.value.toString()] = false
+                this.setState({
+                    update : this.state.update + 1
+                })
+                return
+            }
+        }
+        this.state.constraints.push(e.target.value)
+        this.state.selected[e.target.value.toString()] = true
         this.setState({
-          selectedOption: e.target.value
-        });
+            update : this.state.update + 1
+        })
+        console.log(this.state)
       }
 
     logStates(){
@@ -158,33 +196,25 @@ class Login extends Component {
                         <header className="loginlabel">
                             Name
                                 </header>
-                        <input placeholder="name" className="logininput" type="text" name="name" onKeyPress={this.navigation2} onChange={this.setName} />
+                        <input placeholder="name" className="logininput" type="text" name="name1" onKeyPress={this.navigation2} onChange={this.setName}/>
                         
                         <header className="loginlabel">
                             Age
                                 </header>
-                        <input placeholder="age" className="logininput" type="number" name="name" onKeyPress={this.navigation2} onChange={this.setAge} />
+                        <input placeholder="age" className="logininput" type="number" name="name2" onKeyPress={this.navigation2} onChange={this.setAge} />
                         <header className="loginlabel">
                             Gender
                                 </header>
-                        <select placeholder="gender" className="logininput" type="text" name="name" onKeyPress={this.navigation2} onChange={this.setGender} >
+                        <select placeholder="gender" className="logininput" type="text" name="name3" onKeyPress={this.navigation2} onChange={this.setGender} >
                             <option value = "Male">Male</option>
                             <option value = "Female">Female</option>
                         </select>
                                 
                                                     
-                        <header className="loginlabel">
-                            Height
-                                </header>
-                        <input placeholder="height" className="logininput" type="number" name="name" onKeyPress={this.navigation2} onChange={this.setHeight} />
-                        <header className="loginlabel">
-                            Weight
-                                </header>
-                        <input placeholder="weight" className="logininput" type="number" name="name" onKeyPress={this.navigation2} onChange={this.setWieght} />
-                        <header className="loginlabel">
+                         <header className="loginlabel">
                             What special diet do you follow?
                                 </header>
-                        <select placeholder="diet" className="logininput" type="text" name="name" onKeyPress={this.navigation2} onChange={this.setConstraints} >
+                        <select placeholder="diet" className="logininput" type="text" name="name4" onKeyPress={this.navigation2} onChange={this.setConstraints} >
                             <option value = "none">None</option>
                             <option value = "meat">Vegetarian</option>
                             <option value = "animal">Vegan</option>
@@ -194,37 +224,54 @@ class Login extends Component {
                                 </header>
                                 <div className="radio">
                                 <label>
-                                    <input type="radio" value="gluten" 
-                                                checked={this.state.selectedOption === 'option1'} 
+                                    <input type="radio" value="gluten" name="glutenName"
+                                                checked={this.state.selected["gluten"]}
                                                 onChange={this.handleOptionChange} />
                                     Gluten
                                 </label>
                                 </div>
                                 <div className="radio">
                                 <label>
-                                    <input type="radio" value="milk" 
-                                                checked={this.state.selectedOption === 'option2'} 
+                                    <input type="radio" value="milk" name="milkName"
+                                                checked={this.state.selected["milk"]} 
                                                 onChange={this.handleOptionChange} />
                                     Milk
                                 </label>
                                 </div>
                                 <div className="radio">
                                 <label>
-                                    <input type="radio" value="peanut" 
-                                                checked={this.state.selectedOption === 'option3'} 
+                                    <input type="radio" value="peanut" name="peanutsName"
+                                                checked={this.state.selected["peanut"]} 
                                                 onChange={this.handleOptionChange} />
                                     Peanuts
                                 </label>
                                 </div>
+                                <div className="radio">
+                                <label>
+                                    <input type="radio" value="egg" name="eggsName"
+                                                checked={this.state.selected["egg"]} 
+                                                onChange={this.handleOptionChange} />
+                                    Eggs
+                                </label>
+                                </div>
+                                <div className="radio">
+                                <label>
+                                    <input type="radio" value="nuts" name="nutsName"
+                                                checked={this.state.selected["nuts"]} 
+                                                onChange={this.handleOptionChange} />
+                                    Nuts
+                                </label>
+                                </div>
+                                <div className="radio">
+                                <label>
+                                    <input type="radio" value="soy" name="soyName"
+                                                checked={this.state.selected["soy"]} 
+                                                onChange={this.handleOptionChange} />
+                                    Soy
+                                </label>
+                                </div>
   
-                           <header className="loginlabel">
-                            Goal
-                                </header>
-                        <select placeholder="goal" className="logininput" type="text" name="name" onKeyPress={this.navigation2} onChange={this.setGoal} >
-                            <option value = "gainmuscles">Gain muscles</option>
-                            <option value = "loseweight">Lose weight</option>
-                            <option value = "stay">Stay healthy</option>
-                        </select>
+                           
                         <button className="details2" style={{ display: 'block' }} onClick={this.updateGlobals}>Start</button>
                     </div>
                 </div>

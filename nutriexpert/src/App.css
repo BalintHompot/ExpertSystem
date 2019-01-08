@@ -252,6 +252,19 @@
       box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2);
   }
 
+  .removebutton{
+    font-family: var(--primaryFontFamily);
+      font-size: 1.5vmin;
+      background-color: var(--greyFont);
+      width: 2vmin;
+      height: 2vmin;
+      margin-left: 1vmin;
+      color: white;
+      padding: 0px;
+      border-radius: 80vmin;
+      box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2);
+      text-align: center;
+  }
     
   .details2:hover{
     background-color: var(--fourth);
@@ -876,7 +889,7 @@
 
   .sidebar {
     min-height: 100vh;
-    min-width: 10vw;
+    min-width: 13vw;
     background-color: rgba(var(--secondary), 0.9);
     text-align: left;
     margin-right: 20px

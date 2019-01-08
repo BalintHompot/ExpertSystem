@@ -20,8 +20,11 @@ class MainScreen extends Component {
     this.backToProfile = this.backToProfile.bind(this)
     this.updateQuestion = this.updateQuestion.bind(this)
     this.goToAdvicePage = this.goToAdvicePage.bind(this)
+    this.goToLoginPage = this.goToLoginPage.bind(this)
     this.selectRelevantFoods = this.selectRelevantFoods.bind(this)
     this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
+    this.removeFromConsumed = this.removeFromConsumed.bind(this);
+    this.removeFromEstimated = this.removeFromEstimated.bind(this);
     this.foodListAll = global.foodlist
     this.state = {
       currentQuestion : "",
@@ -53,12 +56,42 @@ class MainScreen extends Component {
     
   }
 
+  removeFromConsumed(food){
+
+    for (var i = 0; i < this.state.consumed.length; i++) {
+      if (this.state.consumed[i] === food.d) {
+          this.state.consumed[i].amount -= 1
+          if(this.state.consumed[i].amount == 0){
+            this.state.consumed.splice(i, 1)
+          } 
+          break
+      }
+    }
+
+    
+    this.removeFromEstimated(food.d)
+    this.setState({update: this.state.update + 1})
+
+  }
+
+  removeFromEstimated(){
+
+  }
+
   addToEstimated(food){
     for (var key in food.nutrilist){
       global.nutrients[key].estimated += food.nutrilist[key]
       
     }
-    console.log(global.nutrients)
+
+  }
+
+  removeFromEstimated(food){
+    for (var key in food.nutrilist){
+      global.nutrients[key].estimated -= food.nutrilist[key]
+      
+    }
+
   }
 
   lookForNewQuestions(){
@@ -123,6 +156,10 @@ class MainScreen extends Component {
     this.props.history.push('/Advice')
   }
 
+  goToLoginPage(){
+    this.props.history.push('/')
+  }
+
   addToSelected(food){
     var inList = false
     for (var i = 0; i < this.state.consumed.length; i++) {
@@ -176,6 +213,7 @@ class MainScreen extends Component {
       <div className = "foodcounter">
         <span> &nbsp; x &nbsp; </span>
         <p>{d.amount}</p>
+        <button className = "removebutton" onClick = {e => this.removeFromConsumed({d})}>-</button>
       </div>
 
 
@@ -192,7 +230,7 @@ class MainScreen extends Component {
 
         
         <div className = "sidebar">
-        <div className = "profilebuttonbackground">
+        <div onClick = {this.goToLoginPage} className = "profilebuttonbackground">
           <div className = "rowflexcontainer">
             <FaChild size  = "1.5vw" className = "profileicon"/>
             <p className = "profiletext">Profile</p>

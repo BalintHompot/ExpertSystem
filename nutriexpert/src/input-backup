@@ -1,0 +1,76 @@
+        <div >
+
+                    <div className="loginmiddle">
+                        <header className="loginlabel">
+                            Name
+                                </header>
+                        <input placeholder="name" className="logininput" type="text" name="name" onKeyPress={this.navigation2} onChange={this.setName} />
+                        
+                        <header className="loginlabel">
+                            Age
+                                </header>
+                        <input placeholder="age" className="logininput" type="number" name="name" onKeyPress={this.navigation2} onChange={this.setAge} />
+                        <header className="loginlabel">
+                            Gender
+                                </header>
+                        <select placeholder="gender" className="logininput" type="text" name="name" onKeyPress={this.navigation2} onChange={this.setGender} >
+                            <option value = "Male">Male</option>
+                            <option value = "Female">Female</option>
+                        </select>
+                                
+                                                    
+                        <header className="loginlabel">
+                            Height
+                                </header>
+                        <input placeholder="height" className="logininput" type="number" name="name" onKeyPress={this.navigation2} onChange={this.setHeight} />
+                        <header className="loginlabel">
+                            Weight
+                                </header>
+                        <input placeholder="weight" className="logininput" type="number" name="name" onKeyPress={this.navigation2} onChange={this.setWieght} />
+                        <header className="loginlabel">
+                            What special diet do you follow?
+                                </header>
+                        <select placeholder="diet" className="logininput" type="text" name="name" onKeyPress={this.navigation2} onChange={this.setConstraints} >
+                            <option value = "none">None</option>
+                            <option value = "meat">Vegetarian</option>
+                            <option value = "animal">Vegan</option>
+                        </select>
+                        <header className="loginlabel">
+                            What allergies do you have?
+                                </header>
+                                <div className="radio">
+                                <label>
+                                    <input type="radio" value="gluten" 
+                                                checked={this.state.selectedOption === 'option1'} 
+                                                onChange={this.handleOptionChange} />
+                                    Gluten
+                                </label>
+                                </div>
+                                <div className="radio">
+                                <label>
+                                    <input type="radio" value="milk" 
+                                                checked={this.state.selectedOption === 'option2'} 
+                                                onChange={this.handleOptionChange} />
+                                    Milk
+                                </label>
+                                </div>
+                                <div className="radio">
+                                <label>
+                                    <input type="radio" value="peanut" 
+                                                checked={this.state.selectedOption === 'option3'} 
+                                                onChange={this.handleOptionChange} />
+                                    Peanuts
+                                </label>
+                                </div>
+  
+                           <header className="loginlabel">
+                            Goal
+                                </header>
+                        <select placeholder="goal" className="logininput" type="text" name="name" onKeyPress={this.navigation2} onChange={this.setGoal} >
+                            <option value = "gainmuscles">Gain muscles</option>
+                            <option value = "loseweight">Lose weight</option>
+                            <option value = "stay">Stay healthy</option>
+                        </select>
+                        <button className="details2" style={{ display: 'block' }} onClick={this.updateGlobals}>Start</button>
+                    </div>
+                </div>
