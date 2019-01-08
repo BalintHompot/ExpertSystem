@@ -13,8 +13,8 @@ const DRINK_QUESTION_DAILY = "Mark the shown drinks you had in the last 24 hours
 
 var questionList = [
 
-    new Question(FOOD_QUESTION_DAILY, "products")
-    new Question(FOOD_QUESTION_DAILY, "vegetables", ["meat"]),
+    new Question(FOOD_QUESTION_DAILY, "products", [])
+    new Question(FOOD_QUESTION_DAILY, "vegetables", []),
     new Question(FOOD_QUESTION_DAILY, "fruits", []),
     new Question(FOOD_QUESTION_DAILY, "meats", []),
     new Question(FOOD_QUESTION_DAILY, "dairy", []),
