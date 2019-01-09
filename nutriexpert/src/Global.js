@@ -12,7 +12,9 @@ class Global {
         //this.weight = 0
         //this.gender = null
         this.foodlist = f.foodlist
-        this.questionList = q.questionList
+        this.generalQuestionList = q.questionList
+        this.generalQuestionsAsked = 0
+        this.specificQuestionList = []
         this.nutrients = n.nutriList
         this.lackingNutrient = null
         this.consumedList = []

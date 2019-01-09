@@ -25,13 +25,16 @@ class MainScreen extends Component {
     this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
     this.removeFromConsumed = this.removeFromConsumed.bind(this);
     this.removeFromEstimated = this.removeFromEstimated.bind(this);
+    this.lookForSpecificQuestion = this.lookForSpecificQuestion.bind(this)
+    this.earliTerminationForGeneralQuestions = this.earliTerminationForGeneralQuestions.bind(this)
     this.foodListAll = global.foodlist
     this.state = {
       currentQuestion : "",
       currentFoodlist: [],
       consumed:[],
       update : 0,
-      sidebarOpen: true
+      sidebarOpen: true,
+      askedGeneralQuestions : 0
       
     }
     this.handleAdd = this.handleAdd.bind(this);
@@ -94,6 +97,26 @@ class MainScreen extends Component {
 
   }
 
+  lookForSpecificQuestion(nutrient){
+      var ratio = (1-global.nutrients[nutrient].estimated / global.nutrients[nutrient].rda)*global.nutrients[nutrient].importanceMultiplier
+      console.log("checking specific nutrient ")
+      console.log(global.nutrients[nutrient])
+      console.log("ratio is ")
+      console.log(ratio)
+      if (ratio > 0){
+        console.log("specific nutrient not fulfilled")
+        var newQ = global.nutrients[nutrient].questionList.shift()
+        if(newQ){
+          global.specificQuestionList.push(newQ)
+        }else{
+          newQ = {text: ""}
+          global.lackingNutrient = nutrient
+          global.consumedList = this.state.consumed
+          this.props.history.push('/Advice')
+        }
+      }
+  }
+
   lookForNewQuestions(){
     var biggestDiff = 0
     var mostImportant = null
@@ -124,7 +147,7 @@ class MainScreen extends Component {
       this.props.history.push('/Advice')
 
     }
-    global.questionList.push(newQ)
+    global.specificQuestionList.push(newQ)
   }
 
   selectRelevantFoods(question){
@@ -152,7 +175,7 @@ class MainScreen extends Component {
 
 
   goToAdvicePage(){
-    console.log(global.questionList)
+    console.log(global.generalQuestionList)
     this.props.history.push('/Advice')
   }
 
@@ -180,16 +203,44 @@ class MainScreen extends Component {
     console.log(this.state.foodlist)
   }
 
+  earliTerminationForGeneralQuestions(askedGeneralQuestions){
+    if(askedGeneralQuestions == 2){
+      this.lookForSpecificQuestion("NVegetables")
+    }
+    if(askedGeneralQuestions == 3){
+      this.lookForSpecificQuestion("NFruits")
+    }
+    if(askedGeneralQuestions == 4){
+      this.lookForSpecificQuestion("NDairy")
+    }
+    if(askedGeneralQuestions == 5){
+      this.lookForSpecificQuestion("NB12")
+    }
+    if(askedGeneralQuestions == 6){
+      this.lookForSpecificQuestion("NNuts")
+    }
+
+  }
+
   async updateQuestion(){
-    console.log(global.questionList.length)
-      if (global.questionList.length == 0){
-        this.lookForNewQuestions()
-         
+      if (global.generalQuestionList.length == 0){
+        this.lookForNewQuestions() 
+      }else{
+        this.earliTerminationForGeneralQuestions(this.state.askedGeneralQuestions)
+      }
+      console.log("update q")
+      if (global.specificQuestionList.length > 0){
+        var cq = global.specificQuestionList.shift()
+      }else if(global.generalQuestionList.length > 0){
+        var cq = global.generalQuestionList.shift()
+        this.state.askedGeneralQuestions += 1
+      }else{
+        console.log("You are very healthy")
+        return
       }
       
-      console.log("update q")
-      var cq = global.questionList.shift()
       console.log(cq)
+      console.log(global)
       this.setState({
         currentQuestion: cq
       })

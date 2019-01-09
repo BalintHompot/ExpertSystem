@@ -3,19 +3,34 @@ import global from "./Global"
 import AnimatedWrapper from "./AnimatedWrapper";
 import './App.css';
 
+class Popup extends React.Component {
+    render() {
+      return (
+        <div className='popup'>
+          <div className='popup_inner' >
+            <h1 className = 'popupname'>{this.props.item.name}</h1>
+            <img className = "popupfoodimage" src = {require(`${this.props.item.img}`)}/>
+            <p className = 'fooddescription'>{this.props.item.description}</p> 
+          <button className = "details2" onClick={this.props.closePopup}>Got it!</button>
+          </div>
+        </div>
+      );
+    }
+  }
 
 class Food {
-    constructor(name, img, sizeType, nutrilist, constraints, relevantQuestionTags){
+    constructor(name, img, sizeType, nutrilist, constraints, relevantQuestionTags, description){
         this.name = name
         this.img = img
         this.sizeType = sizeType
         this.nutrilist = nutrilist                       //nutrient specific categories
         this.constraints = constraints
         this.relevantQuestionTags = relevantQuestionTags //broader categories
+        this.description = description
     }
 }
 const hardCodedWarningList = [
-    new Food("chocolate", "./img/cucumber.jpg", "gram", {NVegetables:100}, [], ["product"] ),
+    new Food("chocolate", "./img/cucumber.jpg", "gram", {NVegetables:100}, [], ["product"] , "thidescri description v his is a sample descriptionthidescription his is a sample description his is a sample description v his is a sample descriptionthidescription his is a sample description his is a samphidescri description v his is a sample descriptionthidescription his is a sample description his is a sample description v his is a sample descriptionthidescription hihidescri description v his is a sample descriptionthidescription his is a sample description his is a sample description v his is a sample descriptionthidescription hihidescri description v his is a sample descriptionthidescription his is a sample description his is a sample description v his is a sample descriptionthidescription hihidescri description v his is a sample descriptionthidescription his is a sample description his is a sample description v his is a sample descriptionthidescription hile description v his is a sample descriptionthidescription his is a sample description his is a sample description v his is a sample descriptionthidescription his is a sample description his is a sample description v his is a sample description"),
 ]
 
 class Advice extends Component {
@@ -23,12 +38,22 @@ class Advice extends Component {
         super(props)
         this.getAdvised = this.getAdvised.bind(this)
         this.getWarning = this.getWarning.bind(this)
+        this.togglePopup = this.togglePopup.bind(this)
         this.state = {
             lackingNutrient : "",
             negativeComment : "", 
             advisedFoodList : [],
-            negativeFoodList : []
+            negativeFoodList : [],
+            showPopup: false,
+            popUpFood: null
         }
+    }
+
+    togglePopup(food) {
+        this.setState({
+        showPopup: !this.state.showPopup,
+        popUpFood : food.d
+        });
     }
 
     componentDidMount(){
@@ -90,14 +115,14 @@ class Advice extends Component {
 
     render() {
         const foodls = this.state.advisedFoodList.map((d) => <li>
-        <button className="fooditem" >
+        <button className="fooditem" onClick = {(e) => this.togglePopup({d})}>
           <img className = "foodimage" src = {require(`${d.img}`)}/>
           <p className = 'foodlabel'>{d.name}</p> 
         </button>
       </li>);
         
         const warnls = this.state.negativeFoodList.map((d) => <li>
-              <button className="fooditem" >
+              <button className="fooditem" onClick = {(e) => this.togglePopup({d})}>
                 <img className = "foodimage" src = {require(`${d.img}`)}/>
                 <p className = 'foodlabel'>{d.name}</p> 
               </button>
@@ -134,8 +159,14 @@ class Advice extends Component {
                     </div>
                 </div>
 
-            
 
+                {this.state.showPopup ? 
+                    <Popup
+                        item={this.state.popUpFood}
+                        closePopup={this.togglePopup.bind(this)}
+                    />
+                    : null
+                }
             
             </div>
             

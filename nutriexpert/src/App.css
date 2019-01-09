@@ -95,6 +95,15 @@
     height: auto;
     max-width: 90%;
   }
+
+  .popupfoodimage{
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+    height: 40%;
+    max-width: auto;
+  }
+
   .foodcounter{
     display: flex;
     flex-direction: row;
@@ -250,6 +259,36 @@
       margin-top: 1vmin;
       border-radius: 80vmin;
       box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2);
+  }
+
+  .popup {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: rgba(0,0,0, 0.5);
+  }
+  .popup_inner {
+    font-family: var(--primaryFontFamily);
+    position: absolute;
+    left: 25%;
+    right: 25%;
+    top: 25%;
+    bottom: 25%;
+    margin: auto;
+    background: white;
+    text-align: center;
+    border-radius: 2vmin;
+    height: 60vh;
+    border-style: solid;
+    border-width: 0.1vmin;
+    border-color: black;
+
+    
   }
 
   .removebutton{
@@ -866,6 +905,20 @@
     font-size: 220%;
     margin-top: 0px;
   }
+
+  .popupname{
+    font-family: var(--primaryFontFamily);
+    font-size: 5vmin;
+    margin-top: 2vmin;
+    text-decoration: underline;
+  }
+
+  .fooddescription{
+    font-family: var(--primaryFontFamily);
+    font-size: 2vmin;
+
+  }
+
   .subtitle{
     font-family: var(--primaryFontFamily);
     font-size: 130%

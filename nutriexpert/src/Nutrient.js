@@ -28,7 +28,7 @@ const LEGUME_Q = "Did you eat any Legumes in the last 7 days?"
 var nutriList = {
     //Name: new Nutrient(N"name", rda, rdaUnit, est = 0, impMult, [new Question("asdf?", "ghjk?")])
     //For hierarchy: Importance score should be calculated as "(1 - (estimated/rda)) * importanceMultiplier"
-    NVegetables: new Nutrient("vegetables",       200,    "gram", 0, VERY_IMORTANT, [new Question(EXOTIC_VEGETABLE_Q, ["exotic_vegetables"],[])]),
+    NVegetables: new Nutrient("vegetables",       200,    "gram", 0, VERY_IMORTANT, [new Question(EXOTIC_VEGETABLE_Q, ["exotic_vegetables"],[]), new Question("Exotic 2 test", ["exotic_vegetables"],[])]),
     NFruits:     new Nutrient("fruits"    ,       200,    "gram", 0, VERY_IMORTANT, [new Question(EXOTIC_FRUIT_Q, ["exotic_fruits"],[])]),
     NDairy:      new Nutrient("dairy"     ,         3, "portion", 0, VERY_IMORTANT, [new Question(DAIRY_REPLACEMENT_Q,[],[])]),
     //To be determined: Fish and/or Legumes yes/no or specificly what?
