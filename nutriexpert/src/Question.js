@@ -10,9 +10,9 @@ class Question{
 
 const PRODUCTS = "Mark the products you had in the last 24 hours:"
 const VEGETABLES = "Mark your veggies:"
-const FRUITS = "Which fruits did you enjoy?"
+const FRUITS = "Which fruits did you eat?"
 const DAIRY = "Dairy"
-const MEATS = "Meats"
+const MEATS = "Meat and Fish"
 const NUTSOILS = "Nuts and Oils"
 const DRINKS = "What drinks did you have? One click per glass or cup:"
 
