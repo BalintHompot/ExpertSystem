@@ -26,7 +26,7 @@ var questionList = [
     //check Nfruits
     new Question(DAIRY, ["dairy"], ["dairy"]),
     //check Ndairy
-    new Question(MEATS, ["meat", "fish"], ["meats"]),
+    new Question(MEATS, ["meat", "fish"], ["meat"]),
     //check Nfish
     //check Nlegumes
     new Question(NUTSOILS, ["nut", "oils"], []),

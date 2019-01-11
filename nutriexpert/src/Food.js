@@ -157,8 +157,8 @@ new Food("Mixed Nuts", "./img/Mixed Nuts.jpg", "gram", {NNuts:15}, ["nut"], ["nu
 //previous examples
   //relevantQuestionsTag (broader categories)
     //products
-    new Food("pizza", "./img/Cucumber.jpg", "gram", {NVegetables:100}, [], ["product"], "This is a sample description" ),
-    new Food("hamburger", "./img/Tomato.jpg", "gram" ,{NVegetables:130}, [], ["product"], "This is a sample description"),
+    new Food("pizza", "./img/Cucumber.jpg", "gram", {NVegetables:100}, ["meat"], ["product"], "This is a sample description" ),
+    new Food("hamburger", "./img/Tomato.jpg", "gram" ,{NVegetables:130}, ["meat"], ["product"], "This is a sample description"),
     //Vegetables
     new Food("cashew", "./img/Tomato.jpg", "gram" ,{NNuts:130}, ["nut"], ["nut"], "This is a sample description"),
     //drinks

@@ -285,8 +285,8 @@ class Login extends Component {
                                 </div>
                                 <div className="radio">
                                 <label>
-                                    <input type="radio" value="nuts" name="nutsName"
-                                                checked={this.state.selected["nuts"]} 
+                                    <input type="radio" value="nut" name="nutsName"
+                                                checked={this.state.selected["nut"]} 
                                                 onChange={this.handleOptionChange} />
                                     Nuts
                                 </label>
