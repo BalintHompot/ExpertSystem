@@ -32,9 +32,9 @@ class NoQPopup extends React.Component {
     return (
       <div className='popup'>
         <div className='popup_inner_advice' >
-          <h1 className = 'popupname'>{this.props.name + ", you don't need NutriExpert, you're an expert yourself!"}</h1>
+          <h1 className = 'popupname'>{this.props.name + ", you don't need NutriExpert"}</h1>
           
-          <p className = 'fooddescription'> It seems you are perfectly on track staying healthy.</p>
+          <p className = 'fooddescription'>  You're an expert yourself! It seems you are perfectly on track staying healthy.</p>
         <button className = "details2" onClick={this.props.goLogin}>Start again</button>
         </div>
       </div>
