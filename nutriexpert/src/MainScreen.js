@@ -27,6 +27,7 @@ class MainScreen extends Component {
     this.removeFromEstimated = this.removeFromEstimated.bind(this);
     this.lookForSpecificQuestion = this.lookForSpecificQuestion.bind(this)
     this.earliTerminationForGeneralQuestions = this.earliTerminationForGeneralQuestions.bind(this)
+    this.answerYesQuestion = this.answerYesQuestion.bind(this)
     this.foodListAll = global.foodlist
     this.state = {
       currentQuestion : "",
@@ -96,6 +97,7 @@ class MainScreen extends Component {
     }
 
   }
+
 
   lookForSpecificQuestion(nutrient){
       var ratio = (1-global.nutrients[nutrient].estimated / global.nutrients[nutrient].rda)*global.nutrients[nutrient].importanceMultiplier
@@ -249,14 +251,37 @@ class MainScreen extends Component {
 
   }
 
-  render() {
+  answerYesQuestion(){
 
-    const foodls = this.state.currentFoodlist.map((d) => <li>
-      <button className="fooditem" onClick={e => this.addToSelected({d})}>
-        <img className = "foodimage" src = {require(`${d.img}`)}/>
-        <p className = 'foodlabel'>{d.name}</p>
-      </button>
-    </li>);
+      var n = this.state.currentQuestion.tag[0]
+      console.log("answered yes, nutrient current value is ")
+      console.log(global.nutrients[n])
+      console.log("adding 200 to")
+      global.nutrients[n] += 200
+      console.log("new val")
+      console.log(global.nutrients[n])
+    
+    this.updateQuestion()
+  }
+  
+  render() {
+ 
+    const foodls = 
+    this.state.currentFoodlist.length > 0 ? 
+      this.state.currentFoodlist.map((d) => <li>
+        <button className="fooditem" onClick={e => this.addToSelected({d})}>
+          <img className = "foodimage" src = {require(`${d.img}`)}/>
+          <p className = 'foodlabel'>{d.name}</p>
+        </button>
+      </li>)
+      :
+      <div className = "rowflexcontainer">
+
+        <button className = "noButton" onClick = {this.updateQuestion}>No</button>
+        <button className = "yesButton" onClick = {this.answerYesQuestion}>Yes</button>
+      </div>
+
+    
 
     const consumedNames = this.state.consumed.map((d) => <li className = "consumedcontainer">
       <img className = "consumedlistimage" src = {require(`${d.img}`)}/>
@@ -315,12 +340,14 @@ class MainScreen extends Component {
 
 
 
-
-            <div className = "fixedcircularbutton">
-              <button className="nextbutton"  onClick = {this.updateQuestion}>
-                Next
-              </button>
-            </div>
+            {this.state.currentFoodlist.length > 0 ? 
+              <div className = "fixedcircularbutton">
+                <button className="nextbutton"  onClick = {this.updateQuestion}>
+                  Next
+                </button>
+              </div>
+              :
+              null}
           </div>
         </div>
 
