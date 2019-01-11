@@ -8,7 +8,7 @@ class Question{
     }
 }
 
-const PRODUCTS = "Mark the products you had in the last 24 hours. You can choose entries multiple times."
+const PRODUCTS = "Mark the products you had in the last 24 hours:"
 const VEGETABLES = "Mark your veggies:"
 const FRUITS = "Which fruits did you enjoy?"
 const DAIRY = "Dairy"
@@ -20,7 +20,7 @@ var questionList = [
 
     //order by nutrilist relevance
     new Question(PRODUCTS, ["product"], []),
-    new Question(VEGETABLES, ["vegetable", "legume"], []),
+    new Question(VEGETABLES, ["vegetable"], []),
     //check Nvegetables if it still has highest importance value (add later)
     new Question(FRUITS, ["fruit"], []),
     //check Nfruits

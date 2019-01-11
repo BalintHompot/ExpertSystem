@@ -12,8 +12,8 @@ class Food {
 
 var foodlist = [
 
-//PRODUCTS
-new Food("Whole Grain Bread", "./img/Banana.jpg", "gram", {NWholeGrain:120}, ["Gluten"], ["product"], "The daily recommended intake for whole grain products is 90g."),
+//Products
+new Food("Whole Grain Bread", "./img/Whole Grain Bread.jpg", "gram", {NWholeGrain:120}, ["Gluten"], ["product"], "The daily recommended intake for whole grain products is 90g."),
 //Fruits
 new Food("Banana", "./img/Banana.jpg", "gram", {NFruits:130}, [], ["fruit"],"The daily recommended intake for fruits is 200g."),
 new Food("Apple", "./img/Apple.jpg", "gram", {NFruits:135}, [], ["fruit"],"The daily recommended intake for fruits is 200g."),
