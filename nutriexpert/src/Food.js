@@ -78,6 +78,9 @@ new Food("Cheese", "./img/Cheese.jpg", "portion", {NDairy:1}, ["dairy"], ["dairy
 new Food("Milk", "./img/Milk.jpg", "portion", {NDairy:1}, ["dairy"], ["dairy"],"You should eat dairy or a form of dairy replacements 3 times each day."),
 //new Food("Milk powder", "./img/Milk powder.jpg", "portion", {NDairy:1}, ["dairy"], ["dairy"],"You should eat dairy or a form of dairy replacements 3 times each day."),
 new Food("Plain Yogurt", "./img/Plain Yogurt.jpg", "portion", {NDairy:1}, ["dairy"], ["dairy"],"You should eat dairy or a form of dairy replacements 3 times each day."),
+new Food("Egg", "./img/Egg.jpg", "portion", {NDairy:1}, ["dairy"], ["dairy"], "It is recommended to "),
+new Food("Casein", "./img/Casein.jpg", "portion", {NDairy:1}, [], ["dairyReplacement"]),
+
 /*
 new Food("Fruit Yogurt")
 new Food("Ice cream", "./img/Ice cream.jpg", "portion", {NDairy:1}, ["dairy"], ["dairy"],"You should eat dairy or a form of dairy replacements 3 times each day."),
@@ -133,6 +136,8 @@ new Food("Sheep", "./img/Sheep.jpg", "gram", {NB12:1}, ["meat"], ["meat"],"There
 //new Food("Goat", "./img/Goat.jpg", "gram", {NB12:1}, ["meat"], ["meat"],"There is inconclusive evidence on negative health effects of red meat."),
 //new Food("Lamb", "./img/Lamb.jpg", "gram", {NB12:1}, ["meat"], ["meat"],"There is inconclusive evidence on negative health effects of red meat."),
 new Food("Bacon", "./img/Bacon.jpg", "gram", {}, ["warning", "meat"], ["meat"],"Most bacon contains high levels of salt. Salt intake should be limited to about 6 grams a day."),
+//new Food("Whey Protein Isolate", "./img/Whey Protein Isolate", )
+new Food("B12 supplements", "./img/B12 supplements", "portion", {NB12:1}, [], ["meatReplacement"], ""),
 //new Food("Other white meat", "./img/Other white meat.jpg", "gram", {NB12:1}, ["meat"], ["meat"],""),
 //new Food("Other read meat", "./img/Other read meat.jpg", "gram", {NB12:1}, ["warning", "meat"], ["meat"],"There is inconclusive evidence on negative health effects of red meat."),
 
@@ -149,18 +154,18 @@ new Food("Wine", "./img/Wine.jpg", "portion", {}, ["warning"], ["drink"],"Reduci
 new Food("Liquor", "./img/Liquor.jpg", "portion", {}, ["warning"], ["drink"],"Reducing alcohol intake can greatly benefit your health."),
 
 //Nuts
-new Food("Almonds", "./img/Almonds.jpg", "gram", {NNuts:15}, ["nut"], ["nut"],"A minimum of 15 grams of nuts each day is healthy."),
-new Food("Hazelnuts", "./img/Hazelnuts.jpg", "gram", {NNuts:15}, ["nut"], ["nut"],"A minimum of 15 grams of nuts each day is healthy."),
-new Food("Walnuts", "./img/Walnuts.jpg", "gram", {NNuts:15}, ["nut"], ["nut"],"A minimum of 15 grams of nuts each day is healthy."),
-new Food("Mixed Nuts", "./img/Mixed Nuts.jpg", "gram", {NNuts:15}, ["nut"], ["nut"],"A minimum of 15 grams of nuts each day is healthy."),
+new Food("Almonds", "./img/Almonds.jpg", "gram", {NNuts:17.5}, ["nut"], ["nut"],"A minimum of 15 grams of nuts each day is healthy."),
+new Food("Hazelnuts", "./img/Hazelnuts.jpg", "gram", {NNuts:17.5}, ["nut"], ["nut"],"A minimum of 15 grams of nuts each day is healthy."),
+new Food("Walnuts", "./img/Walnuts.jpg", "gram", {NNuts:17.5}, ["nut"], ["nut"],"A minimum of 15 grams of nuts each day is healthy."),
+new Food("Mixed Nuts", "./img/Mixed Nuts.jpg", "gram", {NNuts:17.5}, ["nut"], ["nut"],"A minimum of 15 grams of nuts each day is healthy."),
 
+new Food("Other", "./img/Other.jpg","gram", {NDairy:1},[],["dairyReplacement"],""),
 //previous examples
   //relevantQuestionsTag (broader categories)
     //products
-    new Food("pizza", "./img/Cucumber.jpg", "gram", {NVegetables:100}, [], ["product"], "This is a sample description" ),
-    new Food("hamburger", "./img/Tomato.jpg", "gram" ,{NVegetables:130}, [], ["product"], "This is a sample description"),
+    new Food("Pizza", "./img/Pizza.jpg", "gram", {NVegetables:100}, [], ["product"], "This is a sample description" ),
+    new Food("Hamburger", "./img/Hamburger.jpg", "gram" ,{NVegetables:130}, [], ["product"], "This is a sample description"),
     //Vegetables
-    new Food("cashew", "./img/Tomato.jpg", "gram" ,{NNuts:130}, ["nut"], ["nut"], "This is a sample description"),
     //drinks
       //  new Food("banana", "none", {B12:0, Vegetables:0}, [], ["fruitsAndVeg?"]),
   //  new Food("soy", "none", {B12:1, Vegetables:18}, [], ["fruitsAndVeg?", "200veg?", "meatReplacements?"]),
