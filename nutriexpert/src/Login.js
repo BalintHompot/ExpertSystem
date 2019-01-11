@@ -58,6 +58,10 @@ class Login extends Component {
 
     }
 
+    componentDidMount(){
+        global.reset()
+    }
+
     togglePopup() {
 
         if(this.state.name != null && this.state.age != null){
@@ -76,7 +80,7 @@ class Login extends Component {
         this.setState({
             constraints : l
         })
-        console.log(this.state)
+
       }
 
     goToMainPage(){
@@ -86,10 +90,7 @@ class Login extends Component {
 
     clearByConstraints(){
         for (var i = global.foodlist.length -1; i>=0; i--){
-            console.log("i is")
-            console.log(i)
-            console.log("food is ")
-            console.log(global.foodlist[i])
+
             var deleted = false
             for (var c in global.foodlist[i].constraints){
                 for (var k in this.state.constraints){
@@ -117,6 +118,36 @@ class Login extends Component {
                 }
                 if (deleted){
                     break
+                }
+            }
+        }
+        console.log("nutri length")
+        console.log(Object.keys(global.nutrients).length)
+        for (var i = Object.keys(global.nutrients).length -1; i>=0; i--){
+            var currentKey = Object.keys(global.nutrients)[i]
+            console.log("current key")
+            console.log(currentKey)
+            for (var v = global.nutrients[currentKey].questionList.length -1; v>=0;v--){
+                var deleted = false
+                for (var c in global.nutrients[currentKey].questionList[v].constraints){
+                    for (var k in this.state.constraints){
+                        console.log("current question is ")
+                        console.log(global.nutrients[currentKey].questionList[v])
+                        console.log("current question constraint:")
+                        console.log(global.nutrients[currentKey].questionList[v].constraints[c])
+                        console.log("current state constraint:")
+                        console.log(this.state.constraints[k])
+
+                        if (global.nutrients[currentKey].questionList[v].constraints[c] == this.state.constraints[k]){
+
+                            global.nutrients[currentKey].questionList.splice(v, 1)
+                            deleted = true
+                            break
+                        }
+                    }
+                    if (deleted){
+                        break
+                    }
                 }
             }
         }

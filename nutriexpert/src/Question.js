@@ -16,7 +16,7 @@ const MEATS = "Meats"
 const NUTSOILS = "Nuts and Oils"
 const DRINKS = "What drinks did you have? One click per glass or cup:"
 
-var questionList = [
+var newQuestionList = function(){ return [
 
     //order by nutrilist relevance
     new Question(PRODUCTS, ["product"], []),
@@ -34,8 +34,10 @@ var questionList = [
     //check NwholeGrain
     new Question(DRINKS, ["drink"], [])
     //check Ndrinks
-]
+]}
+var questionList = newQuestionList()
 export default {
+    newQuestionList,
     questionList,
     Question
 }

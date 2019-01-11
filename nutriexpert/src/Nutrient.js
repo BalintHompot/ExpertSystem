@@ -29,7 +29,7 @@ const OIL2 = "Oil seems to be missing in your diet. However, you can replace it 
 const FISH2 = "It seems you did not have fish today, did you have any in the past 7 days?"
 const LEGUME2 = "Oh you hadn't had legumes today, have you had any in the last 7 days?"
 
-var nutriList = {
+var newNutriList = function(){ return {
     //Name: new Nutrient(N"name", rda, rdaUnit, est = 0, impMult, [new Question("asdf?", "ghjk?")])
     //For hierarchy: Importance score should be calculated as "(1 - (estimated/rda)) * importanceMultiplier"
     NVegetables: new Nutrient("vegetables",       200,    "gram", 0, VERY_IMORTANT, [new Question(VEGE2, ["NVegetables"],[])]),
@@ -45,14 +45,16 @@ var nutriList = {
     NTea:        new Nutrient("tea"       ,         3, "portion", 0, VERY_IMORTANT, []),
 
     //TBD: Is B12 portion 1 or specific number?
-    NB12:        new Nutrient("b12"       ,         1, "portion", 0, VERY_IMORTANT, [new Question(B122,["NB12"],[])]),
+    NB12:        new Nutrient("b12"       ,         1, "portion", 0, VERY_IMORTANT, [new Question("test meat question",["NB12"],["meat"]), new Question(B122,["NB12"],[])]),
     NOil:        new Nutrient("oils"       ,        50,      "ml", 0, IMPORTANT, [new Question(OIL2,["nut"],[])]),
   //  NNoOilMoreNuts:new Nutrient("nuts"    ,        45,    "gram", 0,     IMPORTANT, [],[]),
 
     //add vitamin/mineral question go here...
 }
-
+}
+var nutriList = newNutriList()
 export default{
+    newNutriList,
     nutriList,
     Nutrient
 }
