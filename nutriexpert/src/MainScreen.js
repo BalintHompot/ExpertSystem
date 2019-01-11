@@ -4,7 +4,7 @@ import './App.css';
 import AnimatedWrapper from "./AnimatedWrapper";
 
 import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
-import apple from './img/apple.jpg'
+import apple from './img/Apple.jpg'
 // Be sure to include styles at some point, probably during your bootstraping
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import global from "./Global"
@@ -35,7 +35,7 @@ class MainScreen extends Component {
       update : 0,
       sidebarOpen: true,
       askedGeneralQuestions : 0
-      
+
     }
     this.handleAdd = this.handleAdd.bind(this);
   };
@@ -46,7 +46,7 @@ class MainScreen extends Component {
   handleRemove(i) {
      var newItems = this.state.items.slice();
      newItems.splice(i, 1);
-     this.setState({items: newItems}); 
+     this.setState({items: newItems});
   }
 
   onSetSidebarOpen(open) {
@@ -56,7 +56,7 @@ class MainScreen extends Component {
     this.updateQuestion()
     window.scrollTo(0, 0)
     window.scrollTo(1, 1)
-    
+
   }
 
   removeFromConsumed(food){
@@ -66,12 +66,12 @@ class MainScreen extends Component {
           this.state.consumed[i].amount -= 1
           if(this.state.consumed[i].amount == 0){
             this.state.consumed.splice(i, 1)
-          } 
+          }
           break
       }
     }
 
-    
+
     this.removeFromEstimated(food.d)
     this.setState({update: this.state.update + 1})
 
@@ -84,7 +84,7 @@ class MainScreen extends Component {
   addToEstimated(food){
     for (var key in food.nutrilist){
       global.nutrients[key].estimated += food.nutrilist[key]
-      
+
     }
 
   }
@@ -92,7 +92,7 @@ class MainScreen extends Component {
   removeFromEstimated(food){
     for (var key in food.nutrilist){
       global.nutrients[key].estimated -= food.nutrilist[key]
-      
+
     }
 
   }
@@ -196,7 +196,7 @@ class MainScreen extends Component {
       food.d.amount = 1
       this.state.consumed.push(food.d)
     }
-    
+
     this.addToEstimated(food.d)
     this.setState({update: this.state.update + 1})
     console.log(this.state.consumed)
@@ -224,7 +224,7 @@ class MainScreen extends Component {
 
   async updateQuestion(){
       if (global.generalQuestionList.length == 0){
-        this.lookForNewQuestions() 
+        this.lookForNewQuestions()
       }else{
         this.earliTerminationForGeneralQuestions(this.state.askedGeneralQuestions)
       }
@@ -238,14 +238,14 @@ class MainScreen extends Component {
         console.log("You are very healthy")
         return
       }
-      
+
       console.log(cq)
       console.log(global)
       this.setState({
         currentQuestion: cq
       })
       this.selectRelevantFoods(cq)
-    
+
 
   }
 
@@ -254,7 +254,7 @@ class MainScreen extends Component {
     const foodls = this.state.currentFoodlist.map((d) => <li>
       <button className="fooditem" onClick={e => this.addToSelected({d})}>
         <img className = "foodimage" src = {require(`${d.img}`)}/>
-        <p className = 'foodlabel'>{d.name}</p> 
+        <p className = 'foodlabel'>{d.name}</p>
       </button>
     </li>);
 
@@ -268,27 +268,27 @@ class MainScreen extends Component {
       </div>
 
 
-      
+
     </li>);
 
     return (
 
-      
+
       <div className = "mainwrapper">
         <div className = "mainbackground"></div>
         <div className = "rowflexbackground">
 
 
-        
+
         <div className = "sidebar">
         <div onClick = {this.goToLoginPage} className = "profilebuttonbackground">
           <div className = "rowflexcontainer">
             <FaChild size  = "1.5vw" className = "profileicon"/>
             <p className = "profiletext">Profile</p>
           </div>
-          
+
         </div>
-        
+
         <div className = "rowflexcontainer">
           <FaUtensils size  = "1.5vw"/>
           <p className = "simpletext">Selected:</p>
@@ -299,9 +299,9 @@ class MainScreen extends Component {
             </ul>
           </div>
 
-          
+
         </div>
-  
+
           <div>
 
             <p className = "question">
@@ -313,8 +313,8 @@ class MainScreen extends Component {
               </ul>
             </div>
 
-            
-            
+
+
 
             <div className = "fixedcircularbutton">
               <button className="nextbutton"  onClick = {this.updateQuestion}>
@@ -323,14 +323,13 @@ class MainScreen extends Component {
             </div>
           </div>
         </div>
-        
+
         </div>
 
     );
-        
+
   }
 }
 
 const m = AnimatedWrapper(MainScreen)
 export default m;
-

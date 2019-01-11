@@ -10,7 +10,7 @@ class Popup extends React.Component {
           <div className='popup_inner' >
             <h1 className = 'popupname'>{this.props.item.name}</h1>
             <img className = "popupfoodimage" src = {require(`${this.props.item.img}`)}/>
-            <p className = 'fooddescription'>{this.props.item.description}</p> 
+            <p className = 'fooddescription'>{this.props.item.description}</p>
           <button className = "details2" onClick={this.props.closePopup}>Got it!</button>
           </div>
         </div>
@@ -30,7 +30,10 @@ class Food {
     }
 }
 const hardCodedWarningList = [
-    new Food("chocolate", "./img/cucumber.jpg", "gram", {NVegetables:100}, [], ["product"] , "thidescri description v his is a sample descriptionthidescription his is a sample description his is a sample description v his is a sample descriptionthidescription his is a sample description his is a samphidescri description v his is a sample descriptionthidescription his is a sample description his is a sample description v his is a sample descriptionthidescription hihidescri description v his is a sample descriptionthidescription his is a sample description his is a sample description v his is a sample descriptionthidescription hihidescri description v his is a sample descriptionthidescription his is a sample description his is a sample description v his is a sample descriptionthidescription hihidescri description v his is a sample descriptionthidescription his is a sample description his is a sample description v his is a sample descriptionthidescription hile description v his is a sample descriptionthidescription his is a sample description his is a sample description v his is a sample descriptionthidescription his is a sample description his is a sample description v his is a sample description"),
+  new Food("Coffee", "./img/Coffee.jpg", "portion", {}, ["warning"], ["drink"],"It is not recommended to drink unfiltered coffee. Avoid drinking more than 5 cups a day because of caffeine."),
+  new Food("Beer", "./img/Beer.jpg", "portion", {}, ["warning"], ["drink"],"Reducing alcohol intake can greatly benefit your health."),
+  new Food("Wine", "./img/Wine.jpg", "portion", {}, ["warning"], ["drink"],"Reducing alcohol intake can greatly benefit your health."),
+  new Food("Liquor", "./img/Liquor.jpg", "portion", {}, ["warning"], ["drink"],"Reducing alcohol intake can greatly benefit your health.")
 ]
 
 class Advice extends Component {
@@ -41,7 +44,7 @@ class Advice extends Component {
         this.togglePopup = this.togglePopup.bind(this)
         this.state = {
             lackingNutrient : "",
-            negativeComment : "", 
+            negativeComment : "",
             advisedFoodList : [],
             negativeFoodList : [],
             showPopup: false,
@@ -63,8 +66,8 @@ class Advice extends Component {
         window.scrollTo(0, 0)
         window.scrollTo(1, 1)
 
-            
-          
+
+
     }
 
     getAdvised(){
@@ -73,7 +76,7 @@ class Advice extends Component {
         if(l != null){
             l = l.substr(1)
         }
-      
+
         console.log("lacking string")
         console.log(l)
         console.log(typeof l)
@@ -85,7 +88,7 @@ class Advice extends Component {
         this.setState({
             advisedFoodList: a,
             lackingNutrient: l,
-            
+
         })
         console.log("advised foods")
         console.log(a)
@@ -117,28 +120,28 @@ class Advice extends Component {
         const foodls = this.state.advisedFoodList.map((d) => <li>
         <button className="fooditem" onClick = {(e) => this.togglePopup({d})}>
           <img className = "foodimage" src = {require(`${d.img}`)}/>
-          <p className = 'foodlabel'>{d.name}</p> 
+          <p className = 'foodlabel'>{d.name}</p>
         </button>
       </li>);
-        
+
         const warnls = this.state.negativeFoodList.map((d) => <li>
               <button className="fooditem" onClick = {(e) => this.togglePopup({d})}>
                 <img className = "foodimage" src = {require(`${d.img}`)}/>
-                <p className = 'foodlabel'>{d.name}</p> 
+                <p className = 'foodlabel'>{d.name}</p>
               </button>
             </li>);
-  
+
         return(
             <div className = "mainwrapper">
 
                 <div className = "advicebackground"></div>
-           
-            
+
+
 
                 <div className = "advicemiddle">
-                
+
                 <p className = "title">You should eat more</p>
-                
+
                     <p className = "subtitle">{this.state.lackingNutrient}</p>
                     <div className = "scrollablelist" style={{overflow: 'auto'}}>
                     <ul className = "fivewidthgrid">
@@ -160,16 +163,16 @@ class Advice extends Component {
                 </div>
 
 
-                {this.state.showPopup ? 
+                {this.state.showPopup ?
                     <Popup
                         item={this.state.popUpFood}
                         closePopup={this.togglePopup.bind(this)}
                     />
                     : null
                 }
-            
+
             </div>
-            
+
         )
     }
 }

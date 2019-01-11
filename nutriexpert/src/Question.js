@@ -8,26 +8,31 @@ class Question{
     }
 }
 
-const FOOD_QUESTION_DAILY = "Mark the shown foods you had in the last 24 hours. You can choose entries multiple times."
-const DRINK_QUESTION_DAILY = "Mark the shown drinks you had in the last 24 hours. You can choose entries multiple times."
+const PRODUCTS = "Mark the products you had in the last 24 hours. You can choose entries multiple times."
+const VEGETABLES = "Mark your veggies:"
+const FRUITS = "Which fruits did you enjoy?"
+const DAIRY = "Dairy"
+const MEATS = "Meats"
+const NUTSOILS = "Nuts and Oils"
+const DRINKS = "What drinks did you have? One click per glass or cup:"
 
 var questionList = [
 
     //order by nutrilist relevance
-    new Question(FOOD_QUESTION_DAILY, ["product"], []),
-    new Question(FOOD_QUESTION_DAILY, ["vegetable"], []),
+    new Question(PRODUCTS, ["product"], []),
+    new Question(VEGETABLES, ["vegetable", "legume"], []),
     //check Nvegetables if it still has highest importance value (add later)
-    new Question(FOOD_QUESTION_DAILY, ["fruit"], []),
+    new Question(FRUITS, ["fruit"], []),
     //check Nfruits
-    new Question(FOOD_QUESTION_DAILY, ["dairy"], ["dairy"]),
+    new Question(DAIRY, ["dairy"], ["dairy"]),
     //check Ndairy
-    new Question(FOOD_QUESTION_DAILY, ["meat"], ["meats"]),
+    new Question(MEATS, ["meat", "fish"], ["meats"]),
     //check Nfish
     //check Nlegumes
-    new Question(FOOD_QUESTION_DAILY, ["nut", "oil"], []),
+    new Question(NUTSOILS, ["nut", "oils"], []),
     //check Nnuts
     //check NwholeGrain
-    new Question(FOOD_QUESTION_DAILY, ["drink"], [])
+    new Question(DRINKS, ["drink"], [])
     //check Ndrinks
 ]
 export default {

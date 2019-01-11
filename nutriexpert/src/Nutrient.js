@@ -19,31 +19,35 @@ class Nutrient{
 const VERY_IMORTANT = 1000
 const IMPORTANT = 750
 
-const EXOTIC_VEGETABLE_Q = "Your vegetable consumption is not sufficient so far, did you eat any of the following?"
-const EXOTIC_FRUIT_Q = "Your fruit consumption is not sufficient so far, did you eat any of the following?"
-const DAIRY_REPLACEMENT_Q = "Your dairy consumption is not sufficient so far, did you take any supplementation?"
-const FISH_Q = "Did you eat any kind of (preferably fatty) fish in the last 7 days?"
-const LEGUME_Q = "Did you eat any Legumes in the last 7 days?"
+const VEGE2 = "Did you eat any other vegetables not in the list?"
+const FRUIT2 =  "Did you eat any of these more exotic fruits?"
+const DAIRY2 = "Did you eat other dairy products or replacement products?"
+//const NUTS2
+//const WHOLEGRAIN2
+const B122 = "It seems you did not eat any meat or eggs. Do you supplement B12?"
+const OIL2 = "Oil seems to be missing in your diet. However, you can replace it with nuts. Did you have 3 portions yet today?"
+const FISH2 = "It seems you did not have fish today, did you have any in the past 7 days?"
+const LEGUME2 = "Oh you hadn't had legumes today, have you had any in the last 7 days?"
 
 var nutriList = {
     //Name: new Nutrient(N"name", rda, rdaUnit, est = 0, impMult, [new Question("asdf?", "ghjk?")])
     //For hierarchy: Importance score should be calculated as "(1 - (estimated/rda)) * importanceMultiplier"
-    NVegetables: new Nutrient("vegetables",       200,    "gram", 0, VERY_IMORTANT, [new Question(EXOTIC_VEGETABLE_Q, ["exotic_vegetables"],[]), new Question("Exotic 2 test", ["exotic_vegetables"],[])]),
-    NFruits:     new Nutrient("fruits"    ,       200,    "gram", 0, VERY_IMORTANT, [new Question(EXOTIC_FRUIT_Q, ["exotic_fruits"],[])]),
-    NDairy:      new Nutrient("dairy"     ,         3, "portion", 0, VERY_IMORTANT, [new Question(DAIRY_REPLACEMENT_Q,[],[])]),
+    NVegetables: new Nutrient("vegetables",       200,    "gram", 0, VERY_IMORTANT, [new Question(VEGE2, [],[])]),
+    NFruits:     new Nutrient("fruits"    ,       200,    "gram", 0, VERY_IMORTANT, [new Question(FRUIT2, ["exotic_fruits"],[])]),
+    NDairy:      new Nutrient("dairy"     ,         3, "portion", 0, VERY_IMORTANT, [new Question(DAIRY2,["dairy"],[])]),
     //To be determined: Fish and/or Legumes yes/no or specificly what?
-    NFish:       new Nutrient("fish"      ,         1, "portion", 0, VERY_IMORTANT, [new Question(FISH_Q,[],[])]),
-    NLegumes:    new Nutrient("legumes"   ,         1, "portion", 0, VERY_IMORTANT, [new Question(LEGUME_Q,[],[])]),
+    NFish:       new Nutrient("fish"      ,         1, "portion", 0, VERY_IMORTANT, [new Question(FISH2,["fish"],[])]),
+    NLegumes:    new Nutrient("legumes"   ,         1, "portion", 0, VERY_IMORTANT, [new Question(LEGUME2,["legume"],[])]),
 
                                                                                     //All need replacement questions
-    NNuts:       new Nutrient("nuts"      ,        15,    "gram", 0, VERY_IMORTANT, [],[]),
-    NWholeGrain: new Nutrient("wholeGrain",        90,    "gram", 0, VERY_IMORTANT, [],[]),
-    NTea:        new Nutrient("tea"       ,         3, "portion", 0, VERY_IMORTANT, [],[]),
+    NNuts:       new Nutrient("nut"      ,        15,    "gram", 0, VERY_IMORTANT, []),
+    NWholeGrain: new Nutrient("whole Grain",        90,    "gram", 0, VERY_IMORTANT, []),
+    NTea:        new Nutrient("tea"       ,         3, "portion", 0, VERY_IMORTANT, []),
 
     //TBD: Is B12 portion 1 or specific number?
-    NB12:        new Nutrient("b12"       ,         1, "portion", 0, VERY_IMORTANT, [],[]),
-    NOil:        new Nutrient("oil"       ,        50,      "ml", 0,     IMPORTANT, [],[]),
-    NNoOilMoreNuts:new Nutrient("nuts"    ,        30,    "gram", 0,     IMPORTANT, [],[]),
+    NB12:        new Nutrient("b12"       ,         1, "portion", 0, VERY_IMORTANT, [new Question(B122,[],[])]),
+    NOil:        new Nutrient("oils"       ,        50,      "ml", 0, IMPORTANT, [new Question(OIL2,["nut"],[])]),
+  //  NNoOilMoreNuts:new Nutrient("nuts"    ,        45,    "gram", 0,     IMPORTANT, [],[]),
 
     //add vitamin/mineral question go here...
 }
