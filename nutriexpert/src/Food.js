@@ -10,7 +10,7 @@ class Food {
     }
 }
 
-var foodlist = [
+var newFoodlist = function(){return [
 
 //Products
 new Food("Whole Grain Bread", "./img/Whole Grain Bread.jpg", "gram", {NWholeGrain:60}, ["Gluten"], ["product"], "The daily recommended intake for whole grain products is 90g."),
@@ -185,8 +185,10 @@ new Food("Other", "./img/Other.jpg","gram", {NDairy:1},[],["dairyReplacement"],"
   //  new Food()
     //drinks
 
-]
+]}
+var foodlist = newFoodlist()
 export default {
+    newFoodlist,
     foodlist,
     Food
 }

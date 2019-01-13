@@ -3,6 +3,7 @@
     --primary: 255, 255, 255;
     --secondary:216, 63, 72;
     --third:30, 190, 52;
+    --fourthRGBA : 255,184,53;
     --fourth: #FFB835;
     --primaryFont: black;
     --secondaryFont: white;
@@ -82,7 +83,7 @@
     margin-right: auto;
     margin-bottom: 5px;
     height: 30vh;
-    max-width: 25vw;
+    max-width: 24vw;
     background-color: rgba(var(--primary), 0.7);
     transition: 50ms;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -290,7 +291,41 @@
       border-radius: 80vmin;
       box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2);
   }
+  .restartbutton{
 
+    font-family: var(--primaryFontFamily);
+    font-size: 2.0vmin;
+    background-color: rgb(var(--third));
+    width: 10vw;
+    height: 5vh;
+
+    color: var(--primary);
+   
+    position: absolute;
+    top: 76vh;
+    left: 45vw;
+
+    font-weight: bold;
+
+    border-radius: 80vmin;
+    box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2);
+}
+
+  .prevbutton{
+
+    font-family: var(--primaryFontFamily);
+    font-size: 2.0vmin;
+    background-color: rgb(var(--fourthRGBA));
+    width: 60%;
+    color: var(--primary);
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2vmin;
+    font-weight: bold;
+    margin-top: 1vmin;
+    border-radius: 80vmin;
+    box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2);
+}
   .popup {
     position: fixed;
     width: 100%;
@@ -320,6 +355,24 @@
 
     
   }
+  .popup_inner_advice {
+    font-family: var(--primaryFontFamily);
+    position: absolute;
+    left: 25%;
+    right: 25%;
+    top: 25%;
+    bottom: 25%;
+    margin: auto;
+    background: white;
+    text-align: center;
+    border-radius: 2vmin;
+    height: 30vh;
+    border-style: solid;
+    border-width: 0.1vmin;
+    border-color: black;
+
+    
+  }
 
   .removebutton{
     font-family: var(--primaryFontFamily);
@@ -338,8 +391,22 @@
   .details2:hover{
     background-color: var(--fourth);
   }
+
+  .details2:active{
+    background-color: rgba(var(--fourth), 0.1);
+  }
   .nextbutton:hover{
     background-color: var(--fourth);
+  }
+  .nextbutton:active{
+    background-color: rgba(var(--fourth), 0.1);
+  }
+
+  .prevbutton:hover{
+    background-color: var(--third);
+  }
+  .prevbutton:active{
+    background-color: rgba(var(--third), 0.1);
   }
 
   .yesButton:hover{
@@ -737,12 +804,23 @@
 
   .fixedcircularbutton {
     position: fixed;
-    bottom: 10vh;
-    right: 0%; 
+    bottom: 3vh;
+    right: 1vw; 
     display:block;
 
   width: 300px;
   border-radius: 50%;
+
+
+}
+.fixedprevbutton {
+  position: fixed;
+  bottom: 3vh;
+  right: 60vw; 
+  display:block;
+
+width: 300px;
+border-radius: 50%;
 
 
 }
@@ -763,7 +841,7 @@
     height: 100vh;
     width: 100vw;
     margin-top: 0%;
-    background-size: 200vh;
+    background-size: 110vmax;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: -15vh -15vh;
@@ -794,7 +872,7 @@
     width: 100vw;
     margin-top: 0%;
     margin-bottom: 0%;
-    background-size: 200vmin;
+    background-size: 100vmax;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: 0 50vh;
@@ -872,7 +950,15 @@
   
   .scrollablelist{ 
     background-color: rgba(0,0,0,0);
-    max-height: 70%;
+    max-height: 30vh;
+
+    
+  }
+    
+  .scrollablelistside{ 
+    background-color: rgba(0,0,0,0);
+    max-height: 70vh;
+
     
   }
 
@@ -888,12 +974,12 @@
       text-align: center;
       background-color: rgba(var(--primary), 0.7);
       padding: 3vmin;
-      width: 28vw;
+      width: 25vw;
       height: 50vh;
       margin: 0;
       position: absolute;
-    top: 50%;
-    left: 60%;
+      top: 50vh;
+      left: 35vw;
 
     transform: translate(-50%, -50%) ;
 
@@ -908,12 +994,12 @@
     text-align: center;
     background-color: rgba(var(--secondary), 0.7);
     padding: 3vmin;
-    width: 28vw;
+    width: 25vw;
     height: 50vh;
     margin: 0;
     position: absolute;
-  top: 50%;
-  left: 120%;
+  top: 50vh;
+  left: 65vw;
 
   transform: translate(-50%, -50%) ;
 
@@ -940,7 +1026,7 @@
   }
   .title{
     font-family: var(--primaryFontFamily);
-    font-size: 220%;
+    font-size: 4vmin;
     margin-top: 0px;
   }
 
@@ -959,7 +1045,7 @@
 
   .subtitle{
     font-family: var(--primaryFontFamily);
-    font-size: 130%
+    font-size: 3vmin
   }
   .foodlabel{
     color: var(--primaryFont);

@@ -11,13 +11,30 @@ class Global {
         //this.height = 0
         //this.weight = 0
         //this.gender = null
-        this.foodlist = f.foodlist
-        this.generalQuestionList = q.questionList
+        this.foodlist = f.newFoodlist()
+        this.generalQuestionList = q.newQuestionList()
         this.generalQuestionsAsked = 0
         this.specificQuestionList = []
-        this.nutrients = n.nutriList
+        this.nutrients = n.newNutriList()
         this.lackingNutrient = null
         this.consumedList = []
+
+        this.reset = function(){
+                        //this.goal = null
+            this.constraints = []
+            this.age = 0
+            this.name = "name"
+            //this.height = 0
+            //this.weight = 0
+            //this.gender = null
+            this.foodlist = f.newFoodlist()
+            this.generalQuestionList = q.newQuestionList()
+            this.generalQuestionsAsked = 0
+            this.specificQuestionList = []
+            this.nutrients = n.newNutriList()
+            this.lackingNutrient = null
+            this.consumedList = []
+        }
 
         this.setProperty = function(key, value){
             key = key.toString()
@@ -59,5 +76,7 @@ class Global {
         }
     }
 }
+
+
 let global = new Global()
 export default global

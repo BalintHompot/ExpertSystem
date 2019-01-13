@@ -13,6 +13,35 @@ import Sidebar from "react-sidebar";
 import { FaChild, FaUtensils } from 'react-icons/fa';
 var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
+class Popup extends React.Component {
+  render() {
+    return (
+      <div className='popup'>
+        <div className='popup_inner_advice' >
+          <h1 className = 'popupname'>{"Hey " + this.props.name + "!"}</h1>
+          
+          <p className = 'fooddescription'> The nutrition expert is finished with getting the best advice. Ready when you are! </p>
+        <button className = "details2" onClick={this.props.goToAdvice}>Let's go!</button>
+        </div>
+      </div>
+    );
+  }
+}
+class NoQPopup extends React.Component {
+  render() {
+    return (
+      <div className='popup'>
+        <div className='popup_inner_advice' >
+          <h1 className = 'popupname'>{this.props.name + ", you don't need NutriExpert"}</h1>
+          
+          <p className = 'fooddescription'>  You're an expert yourself! It seems you are perfectly on track staying healthy.</p>
+        <button className = "details2" onClick={this.props.goLogin}>Start again</button>
+        </div>
+      </div>
+    );
+  }
+}
+
 
 class MainScreen extends Component {
   constructor(props){
@@ -28,6 +57,9 @@ class MainScreen extends Component {
     this.lookForSpecificQuestion = this.lookForSpecificQuestion.bind(this)
     this.earliTerminationForGeneralQuestions = this.earliTerminationForGeneralQuestions.bind(this)
     this.answerYesQuestion = this.answerYesQuestion.bind(this)
+    this.backToPrevQuestion = this.backToPrevQuestion.bind(this)
+    this.togglePopup = this.togglePopup.bind(this)
+    this.toggleNoMoreQuestionsPopup = this.toggleNoMoreQuestionsPopup.bind(this)
     this.foodListAll = global.foodlist
     this.state = {
       currentQuestion : "",
@@ -35,11 +67,27 @@ class MainScreen extends Component {
       consumed:[],
       update : 0,
       sidebarOpen: true,
-      askedGeneralQuestions : 0
+      askedGeneralQuestions : 0,
+      prevQuestion : null,
+      questionType:"general",
+      showPopup:false,
+      noMoreQuestiosPopup:false
 
     }
     this.handleAdd = this.handleAdd.bind(this);
   };
+
+  togglePopup() {
+    this.setState({
+    showPopup: !this.state.showPopup,
+    });
+  }
+
+  toggleNoMoreQuestionsPopup() {
+    this.setState({
+    noMoreQuestiosPopup: !this.state.noMoreQuestiosPopup,
+    });
+  }
   handleAdd() {
      var newItems = this.state.items.concat([prompt('Create New Item')]);
      this.setState({items: newItems});
@@ -114,7 +162,7 @@ class MainScreen extends Component {
           newQ = {text: ""}
           global.lackingNutrient = nutrient
           global.consumedList = this.state.consumed
-          this.props.history.push('/Advice')
+          this.togglePopup()
         }
       }
   }
@@ -137,7 +185,7 @@ class MainScreen extends Component {
     console.log("most important is")
     console.log(mostImportant)
     if(biggestDiff<=0){
-      console.log("you are very healthy")
+      this.toggleNoMoreQuestionsPopup()
       return
     }
     var newQ = global.nutrients[mostImportant].questionList.shift()
@@ -177,7 +225,6 @@ class MainScreen extends Component {
 
 
   goToAdvicePage(){
-    console.log(global.generalQuestionList)
     this.props.history.push('/Advice')
   }
 
@@ -225,16 +272,20 @@ class MainScreen extends Component {
   }
 
   async updateQuestion(){
+      this.state.prevQuestion = this.state.currentQuestion
       if (global.generalQuestionList.length == 0){
         this.lookForNewQuestions()
+        
       }else{
         this.earliTerminationForGeneralQuestions(this.state.askedGeneralQuestions)
       }
       console.log("update q")
       if (global.specificQuestionList.length > 0){
         var cq = global.specificQuestionList.shift()
+        this.state.questionType = "specific"
       }else if(global.generalQuestionList.length > 0){
         var cq = global.generalQuestionList.shift()
+        this.state.questionType = "general"
         this.state.askedGeneralQuestions += 1
       }else{
         console.log("You are very healthy")
@@ -251,13 +302,30 @@ class MainScreen extends Component {
 
   }
 
+  backToPrevQuestion(){
+    var p = this.state.prevQuestion
+    console.log("back")
+    console.log(global.generalQuestionList)
+    if(this.state.questionType == "general"){
+      global.generalQuestionList.unshift(this.state.currentQuestion)
+      this.state.askedGeneralQuestions -= 1
+    }else{
+      global.specificQuestionList.unshift(this.state.currentQuestion)
+    }
+    console.log(global.generalQuestionList)
+    this.setState({
+      currentQuestion: p
+    })
+    this.selectRelevantFoods(p)
+  }
+
   answerYesQuestion(){
 
       var n = this.state.currentQuestion.tag[0]
       console.log("answered yes, nutrient current value is ")
       console.log(global.nutrients[n])
       console.log("adding 200 to")
-      global.nutrients[n] += 200
+      global.nutrients[n] += 20000
       console.log("new val")
       console.log(global.nutrients[n])
     
@@ -318,7 +386,7 @@ class MainScreen extends Component {
           <FaUtensils size  = "1.5vw"/>
           <p className = "simpletext">Selected:</p>
         </div >
-          <div className = "scrollablelist" style={{ overflow: 'auto'}}>
+          <div className = "scrollablelistside" style={{ overflow: 'auto'}}>
           <ul className = "consumedlist">
               {consumedNames}
             </ul>
@@ -348,8 +416,32 @@ class MainScreen extends Component {
               </div>
               :
               null}
+
+            
+            {this.state.currentFoodlist.length > 0 && this.state.askedGeneralQuestions != 1? 
+              <div className = "fixedprevbutton">
+                <button className="prevbutton"  onClick = {this.backToPrevQuestion}>
+                  Previous
+                </button>
+              </div>
+              :
+              null} 
           </div>
         </div>
+        {this.state.showPopup ? 
+                    <Popup
+                        name = {global.name.split(" ")[0]}
+                        goToAdvice={this.goToAdvicePage.bind(this)}
+                    />
+                    : null
+                }
+        {this.state.noMoreQuestiosPopup ? 
+                    <NoQPopup
+                        name = {global.name.split(" ")[0]}
+                        goLogin={this.goToLoginPage.bind(this)}
+                    />
+                    : null
+                }
 
         </div>
 

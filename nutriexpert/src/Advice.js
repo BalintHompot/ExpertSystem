@@ -41,6 +41,7 @@ class Advice extends Component {
         super(props)
         this.getAdvised = this.getAdvised.bind(this)
         this.getWarning = this.getWarning.bind(this)
+        this.goToLoginPage = this.goToLoginPage.bind(this)
         this.togglePopup = this.togglePopup.bind(this)
         this.state = {
             lackingNutrient : "",
@@ -51,6 +52,9 @@ class Advice extends Component {
             popUpFood: null
         }
     }
+    goToLoginPage(){
+        this.props.history.push('/')
+      }
 
     togglePopup(food) {
         this.setState({
@@ -84,6 +88,11 @@ class Advice extends Component {
             if (global.foodlist[i].nutrilist[global.lackingNutrient] > 0){
                 a.push(global.foodlist[i])
             }
+        }
+
+        if(a.length == 0){
+            var n = l
+            a = [new Food( n + " replacements", "./img/" + n + "replacement.jpg", "portion", {}, [], [], "Consuming " + n + " is essential for a healthy lifestyle. In case your diet or your allergies do not allow you to eat foods that contain it, you should take replacements")]
         }
         this.setState({
             advisedFoodList: a,
@@ -133,21 +142,21 @@ class Advice extends Component {
 
         return(
             <div className = "mainwrapper">
+                
 
                 <div className = "advicebackground"></div>
 
-
-
                 <div className = "advicemiddle">
 
-                <p className = "title">You should eat more</p>
+                    <p className = "title">You should eat more</p>
 
                     <p className = "subtitle">{this.state.lackingNutrient}</p>
                     <div className = "scrollablelist" style={{overflow: 'auto'}}>
-                    <ul className = "fivewidthgrid">
-                    {foodls}
-                    </ul>
-                </div>
+                        <ul className = "fivewidthgrid">
+                            {foodls}
+                        </ul>
+                    
+                    </div>
 
                 </div>
 
@@ -157,12 +166,13 @@ class Advice extends Component {
                     <div className = "scrollablelist" style={{overflow: 'auto'}}>
 
                         <ul className = "fivewidthgrid">
-                        {warnls}
+                            {warnls}
                         </ul>
                     </div>
+                    
                 </div>
-
-
+                <button className = "restartbutton" onClick = {this.goToLoginPage}>Start again</button>
+                
                 {this.state.showPopup ?
                     <Popup
                         item={this.state.popUpFood}
