@@ -13,7 +13,16 @@ class Food {
 var foodlist = [
 
 //Products
-new Food("Whole Grain Bread", "./img/Whole Grain Bread.jpg", "gram", {NWholeGrain:120}, ["Gluten"], ["product"], "The daily recommended intake for whole grain products is 90g."),
+new Food("Whole Grain Bread", "./img/Whole Grain Bread.jpg", "gram", {NWholeGrain:60}, ["Gluten"], ["product"], "The daily recommended intake for whole grain products is 90g."),
+new Food("White Bread", "./img/White Bread.jpg", "gram", {NWholeGrain:60}, ["Gluten"], ["product"], "The daily recommended intake for whole grain products is 90g."),
+new Food("Hamburger", "./img/Hamburger.jpg", "gram" ,{NVegetables:130}, [], ["product"], "This is a sample description"),
+new Food("Veggieburger", "./img/Veggieburger.jpg", "gram")
+new Food("Cereal/Granola", "./CearealGranola.jpg", "gram" ,{NVegetables:130}, [], ["product"], "This is a sample description"),
+new Food("Vegetable Pizza", "./img/Vegetable Pizza.jpg", "gram", {NWholeGrain:60}, ["Gluten"], ["product"], "The daily recommended intake for whole grain products is 90g."),
+new Food("Meat Pizza", "./img/Meat Pizza.jpg", "gram", {NWholeGrain:60}, ["Gluten"], ["product"], "The daily recommended intake for whole grain products is 90g."),
+new Food("Sweets", "./img/Sweets.jpg", "gram", {NWholeGrain:60}, ["Gluten"], ["product"], "The daily recommended intake for whole grain products is 90g."),
+new Food("Ready Sauce/Dressing", "./img/Ready Sauce/Dressing.jpg")
+new Food("Sweet Spreads", "./img/Sweet Spreads.jpg", )
 //Fruits
 new Food("Banana", "./img/Banana.jpg", "gram", {NFruits:130}, [], ["fruit"],"The daily recommended intake for fruits is 200g."),
 new Food("Apple", "./img/Apple.jpg", "gram", {NFruits:135}, [], ["fruit"],"The daily recommended intake for fruits is 200g."),
@@ -163,8 +172,7 @@ new Food("Other", "./img/Other.jpg","gram", {NDairy:1},[],["dairyReplacement"],"
 //previous examples
   //relevantQuestionsTag (broader categories)
     //products
-    new Food("Pizza", "./img/Pizza.jpg", "gram", {NVegetables:100}, [], ["product"], "This is a sample description" ),
-    new Food("Hamburger", "./img/Hamburger.jpg", "gram" ,{NVegetables:130}, [], ["product"], "This is a sample description"),
+
     //Vegetables
     //drinks
       //  new Food("banana", "none", {B12:0, Vegetables:0}, [], ["fruitsAndVeg?"]),

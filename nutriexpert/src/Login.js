@@ -3,19 +3,35 @@ import React, { Component } from 'react';
 import {HashRouter, Route, withRouter} from "react-router-dom"
 import AnimatedWrapper from "./AnimatedWrapper"
 
+
 class Popup extends React.Component {
     render() {
       return (
         <div className='popup'>
           <div className='popup_inner' >
-            <h1 className = 'popupname'>{"Hello " + this.props.name + "!"}</h1>
-            
-            <p className = 'fooddescription'> On the following pages you will see question on what you have eat with lists of corresponding foods. Each question targets a specific food group, and defines a time frame.</p>
-            <br/>
+            <h className = 'popupname'>{"Hello " + this.props.name + "!"}</h>
+            <p> After clicking through just a few simple questions, Nutrition Expert will provide you
+                with easy tips on how to achieve an even more healthy diet.
+            </p>
             <p>
-            Please answer the questions by clicking on the food items. On each page, you can click on several items, and you can also click on the same item multiple times, in case you have consumed the same item multiple times in the relevant time frame.</p>
-            <br/>
-            <p> In the end, we will provide you with a personalised advice on what you should eat to stay healthy.</p> 
+                Here a quick heads up:
+            </p>
+            <p>
+                1. You are presented with foods of different categories.
+                </p>
+                <p>
+                2. Per category, select the item(s) consumed in the past 24 hours. Sometimes the time span is one week.
+                </p>
+                <p>
+                3. The pictures approximately match the serving size.
+                </p>
+                <p>
+                4. You can select items multiple times.
+                </p>
+                <p>
+                5. Left-bound will be a list of items selected.
+            </p>
+
           <button className = "details2" onClick={this.props.updateGlobals}>Let's go!</button>
           </div>
         </div>
@@ -175,7 +191,7 @@ class Login extends Component {
     }
 
     setConstraints(event) {
-        
+
         this.state.constraints.push(event.target.value)
         this.logStates()
     }
@@ -208,7 +224,7 @@ class Login extends Component {
 
     navigation2 = (event) => {
         if (event.key == "Enter") {
-            this.updateGlobals() 
+            this.updateGlobals()
         }
     }
 
@@ -217,8 +233,8 @@ class Login extends Component {
             <div className='foodbackground'>
             <h1 className = "title">Welcome to Nutririon Expert!</h1>
             <h2 className = "subtitle">Please set your personal information</h2>
-    
-                
+
+
                 <div >
 
                     <div className="loginmiddle">
@@ -226,7 +242,7 @@ class Login extends Component {
                             Name
                                 </header>
                         <input placeholder="name" className="logininput" type="text" name="name1" onKeyPress={this.navigation2} onChange={this.setName}/>
-                        
+
                         <header className="loginlabel">
                             Age
                                 </header>
@@ -238,8 +254,8 @@ class Login extends Component {
                             <option value = "Male">Male</option>
                             <option value = "Female">Female</option>
                         </select>
-                                
-                                                    
+
+
                          <header className="loginlabel">
                             What special diet do you follow?
                                 </header>
@@ -262,7 +278,7 @@ class Login extends Component {
                                 <div className="radio">
                                 <label>
                                     <input type="radio" value="milk" name="milkName"
-                                                checked={this.state.selected["milk"]} 
+                                                checked={this.state.selected["milk"]}
                                                 onChange={this.handleOptionChange} />
                                     Milk
                                 </label>
@@ -270,7 +286,7 @@ class Login extends Component {
                                 <div className="radio">
                                 <label>
                                     <input type="radio" value="peanut" name="peanutsName"
-                                                checked={this.state.selected["peanut"]} 
+                                                checked={this.state.selected["peanut"]}
                                                 onChange={this.handleOptionChange} />
                                     Peanuts
                                 </label>
@@ -278,7 +294,7 @@ class Login extends Component {
                                 <div className="radio">
                                 <label>
                                     <input type="radio" value="egg" name="eggsName"
-                                                checked={this.state.selected["egg"]} 
+                                                checked={this.state.selected["egg"]}
                                                 onChange={this.handleOptionChange} />
                                     Eggs
                                 </label>
@@ -286,7 +302,7 @@ class Login extends Component {
                                 <div className="radio">
                                 <label>
                                     <input type="radio" value="nut" name="nutsName"
-                                                checked={this.state.selected["nut"]} 
+                                                checked={this.state.selected["nut"]}
                                                 onChange={this.handleOptionChange} />
                                     Nuts
                                 </label>
@@ -294,17 +310,17 @@ class Login extends Component {
                                 <div className="radio">
                                 <label>
                                     <input type="radio" value="soy" name="soyName"
-                                                checked={this.state.selected["soy"]} 
+                                                checked={this.state.selected["soy"]}
                                                 onChange={this.handleOptionChange} />
                                     Soy
                                 </label>
                                 </div>
-  
-                           
+
+
                         <button className="details2" style={{ display: 'block' }} onClick={this.togglePopup}>Start</button>
                     </div>
                 </div>
-                {this.state.showPopup ? 
+                {this.state.showPopup ?
                     <Popup
                         name = {this.state.name.split(" ")[0]}
                         updateGlobals={this.updateGlobals.bind(this)}
@@ -314,7 +330,7 @@ class Login extends Component {
             </div>
         );
     }
-    
+
 }
 const l = AnimatedWrapper(Login)
 export default l
