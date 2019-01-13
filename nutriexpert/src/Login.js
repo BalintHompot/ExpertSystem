@@ -47,14 +47,14 @@ class Login extends Component {
             update:0,
             constraints : [],
             selected : {
-                Lactose: false,
-                Gluten : false,
-                Eggs : false,
-                Fish : false,
-                Shellfish: false,
-                Peanuts : false,
-                Treenuts : false,
-                Soy : false,
+                lactose: false,
+                gluten : false,
+                eggs : false,
+                fish : false,
+                shellfish: false,
+                peanuts : false,
+                treenuts : false,
+                soy : false,
 
             },
             showPopup: false,
@@ -260,7 +260,7 @@ class Login extends Component {
 
                          <header className="loginlabel">
                             What special diet do you follow?
-                                </header>
+                         </header>
                         <select placeholder="diet" className="logininput" type="text" name="name4" onKeyPress={this.navigation2} onChange={this.setConstraints} >
                             <option value = "none">None</option>
                             <option value = "meat">Vegetarian</option>
@@ -271,6 +271,14 @@ class Login extends Component {
                                 </header>
                                 <div className="radio">
                                 <label>
+                                    <input type="radio" value="lactose" name="lactoseName"
+                                                checked={this.state.selected["lactose"]}
+                                                onChange={this.handleOptionChange} />
+                                    Lactose
+                                </label>
+                                </div>
+                                <div className="radio">
+                                <label>
                                     <input type="radio" value="gluten" name="glutenName"
                                                 checked={this.state.selected["gluten"]}
                                                 onChange={this.handleOptionChange} />
@@ -279,44 +287,53 @@ class Login extends Component {
                                 </div>
                                 <div className="radio">
                                 <label>
-                                    <input type="radio" value="milk" name="milkName"
-                                                checked={this.state.selected["milk"]}
-                                                onChange={this.handleOptionChange} />
-                                    Milk
-                                </label>
-                                </div>
-                                <div className="radio">
-                                <label>
-                                    <input type="radio" value="peanut" name="peanutsName"
-                                                checked={this.state.selected["peanut"]}
-                                                onChange={this.handleOptionChange} />
-                                    Peanuts
-                                </label>
-                                </div>
-                                <div className="radio">
-                                <label>
-                                    <input type="radio" value="egg" name="eggsName"
+                                    <input type="radio" value="egg" name="eggName"
                                                 checked={this.state.selected["egg"]}
                                                 onChange={this.handleOptionChange} />
-                                    Eggs
+                                    Egg
                                 </label>
                                 </div>
                                 <div className="radio">
                                 <label>
-                                    <input type="radio" value="nut" name="nutsName"
-                                                checked={this.state.selected["nut"]}
+                                    <input type="radio" value="fish" name="fishName"
+                                                checked={this.state.selected["fish"]}
                                                 onChange={this.handleOptionChange} />
-                                    Nuts
+                                    Fish
                                 </label>
                                 </div>
                                 <div className="radio">
                                 <label>
-                                    <input type="radio" value="soy" name="soyName"
+                                    <input type="radio" value="shellfish" name="shellfishName"
+                                                checked={this.state.selected["shellfish"]}
+                                                onChange={this.handleOptionChange} />
+                                    Shellfish
+                                </label>
+                                </div>
+                                <div className="radio">
+                                <label>
+                                    <input type="radio" value="peanut" name="peanutName"
+                                                checked={this.state.selected["peanut"]}
+                                                onChange={this.handleOptionChange} />
+                                    Peanut
+                                </label>
+                                </div>
+                                <div className="radio">
+                                <label>
+                                    <input type="radio" value="treenuts" name="treenutsName"
+                                                checked={this.state.selected["treenuts"]}
+                                                onChange={this.handleOptionChange} />
+                                    Tree Nuts
+                                </label>
+                                </div>
+                                </div>
+                                <div className="radio">
+                                <label>
+                                    <input type="radio" value="soy" name="soy"
                                                 checked={this.state.selected["soy"]}
                                                 onChange={this.handleOptionChange} />
                                     Soy
                                 </label>
-                                </div>
+                                
 
 
                         <button className="details2" style={{ display: 'block' }} onClick={this.togglePopup}>Start</button>

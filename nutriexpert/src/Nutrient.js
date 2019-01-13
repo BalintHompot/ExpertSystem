@@ -45,15 +45,8 @@ var newNutriList = function(){ return {
     NTea:        new Nutrient("tea"       ,         3, "portion", 0, VERY_IMORTANT, []),
 
     //TBD: Is B12 portion 1 or specific number?
-<<<<<<< HEAD
-    NB12:        new Nutrient("b12"       ,         1, "portion", 0, VERY_IMORTANT, [new Question(B122,["NB12"],[])]),
-    NOil:        new Nutrient("oils"       ,        50,      "ml", 0, IMPORTANT, [new Question(OIL2,["nut"],[])]),
-=======
-
     NB12:        new Nutrient("b12"       ,         1, "portion", 0, VERY_IMORTANT, [new Question(B122,[],[])]),
     NOil:        new Nutrient("oils"      ,        50,      "ml", 0, IMPORTANT, [new Question(OIL2,["nut"],[])]),
-
->>>>>>> 2d557d09786ce7bb6941a7d859b23794569d0d98
   //  NNoOilMoreNuts:new Nutrient("nuts"    ,        45,    "gram", 0,     IMPORTANT, [],[]),
 
     //add vitamin/mineral question go here...

@@ -19,7 +19,7 @@ class Popup extends React.Component {
       <div className='popup'>
         <div className='popup_inner_advice' >
           <h1 className = 'popupname'>{"Hey " + this.props.name + "!"}</h1>
-          
+
           <p className = 'fooddescription'> The nutrition expert is finished with getting the best advice. Ready when you are! </p>
         <button className = "details2" onClick={this.props.goToAdvice}>Let's go!</button>
         </div>
@@ -33,7 +33,7 @@ class NoQPopup extends React.Component {
       <div className='popup'>
         <div className='popup_inner_advice' >
           <h1 className = 'popupname'>{this.props.name + ", you don't need NutriExpert"}</h1>
-          
+
           <p className = 'fooddescription'>  You're an expert yourself! It seems you are perfectly on track staying healthy.</p>
         <button className = "details2" onClick={this.props.goLogin}>Start again</button>
         </div>
@@ -263,10 +263,15 @@ class MainScreen extends Component {
       this.lookForSpecificQuestion("NDairy")
     }
     if(askedGeneralQuestions == 5){
-      this.lookForSpecificQuestion("NB12")
+      this.lookForSpecificQuestion("NFish")
+      this.lookForSpecificQuestion("NLegumes")
     }
     if(askedGeneralQuestions == 6){
       this.lookForSpecificQuestion("NNuts")
+      this.lookForSpecificQuestion("NWholeGrain")
+      this.lookForSpecificQuestion("NTea")
+      this.lookForSpecificQuestion("NB12")
+      this.lookForSpecificQuestion("NOil")
     }
 
   }
@@ -275,7 +280,7 @@ class MainScreen extends Component {
       this.state.prevQuestion = this.state.currentQuestion
       if (global.generalQuestionList.length == 0){
         this.lookForNewQuestions()
-        
+
       }else{
         this.earliTerminationForGeneralQuestions(this.state.askedGeneralQuestions)
       }
@@ -328,14 +333,14 @@ class MainScreen extends Component {
       global.nutrients[n] += 20000
       console.log("new val")
       console.log(global.nutrients[n])
-    
+
     this.updateQuestion()
   }
-  
+
   render() {
- 
-    const foodls = 
-    this.state.currentFoodlist.length > 0 ? 
+
+    const foodls =
+    this.state.currentFoodlist.length > 0 ?
       this.state.currentFoodlist.map((d) => <li>
         <button className="fooditem" onClick={e => this.addToSelected({d})}>
           <img className = "foodimage" src = {require(`${d.img}`)}/>
@@ -349,7 +354,7 @@ class MainScreen extends Component {
         <button className = "yesButton" onClick = {this.answerYesQuestion}>Yes</button>
       </div>
 
-    
+
 
     const consumedNames = this.state.consumed.map((d) => <li className = "consumedcontainer">
       <img className = "consumedlistimage" src = {require(`${d.img}`)}/>
@@ -408,7 +413,7 @@ class MainScreen extends Component {
 
 
 
-            {this.state.currentFoodlist.length > 0 ? 
+            {this.state.currentFoodlist.length > 0 ?
               <div className = "fixedcircularbutton">
                 <button className="nextbutton"  onClick = {this.updateQuestion}>
                   Next
@@ -417,25 +422,25 @@ class MainScreen extends Component {
               :
               null}
 
-            
-            {this.state.currentFoodlist.length > 0 && this.state.askedGeneralQuestions != 1? 
+
+            {this.state.currentFoodlist.length > 0 && this.state.askedGeneralQuestions != 1?
               <div className = "fixedprevbutton">
                 <button className="prevbutton"  onClick = {this.backToPrevQuestion}>
                   Previous
                 </button>
               </div>
               :
-              null} 
+              null}
           </div>
         </div>
-        {this.state.showPopup ? 
+        {this.state.showPopup ?
                     <Popup
                         name = {global.name.split(" ")[0]}
                         goToAdvice={this.goToAdvicePage.bind(this)}
                     />
                     : null
                 }
-        {this.state.noMoreQuestiosPopup ? 
+        {this.state.noMoreQuestiosPopup ?
                     <NoQPopup
                         name = {global.name.split(" ")[0]}
                         goLogin={this.goToLoginPage.bind(this)}
