@@ -29,6 +29,8 @@
   }
 
   .question{
+
+    font-size: 5vmin;
     text-align: center;
     padding-right : 15vw;
     position: -webkit-sticky;
@@ -36,7 +38,7 @@
     top: 0px;
     left: -10px;
     font-family: var(--primaryFontFamily);
-    font-size: 200%;
+
     text-decoration: underline;
     z-index: 10000;
 
@@ -359,6 +361,7 @@
     margin-top: 2vh;
     margin-left: 2vw;
     margin-right: 2vw;
+    font-size: 1.8vmin;
   }
   .popup_inner_advice {
     font-family: var(--primaryFontFamily);
@@ -753,10 +756,10 @@
   }
   .fivewidthgrid{
     background-color: rgba(0,0,0,0);
-    width: 100vw;
+    width: 80vw;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fill, 200px  );
+    grid-template-columns: repeat(auto-fill, 20vmin );
     grid-gap: 10px;
     margin-bottom: 0%;
     justify-items: center;
@@ -813,7 +816,7 @@
     right: 1vw; 
     display:block;
 
-  width: 300px;
+  width: 30vmin;
   border-radius: 50%;
 
 
@@ -824,7 +827,7 @@
   right: 60vw; 
   display:block;
 
-width: 300px;
+width: 30vmin;
 border-radius: 50%;
 
 
@@ -846,7 +849,7 @@ border-radius: 50%;
     height: 100vh;
     width: 100vw;
     margin-top: 0%;
-    background-size: 110vmax;
+    background-size: 200vmin;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: -15vh -15vh;
@@ -1034,6 +1037,7 @@ border-radius: 50%;
     font-family: var(--primaryFontFamily);
     font-size: 4vmin;
     margin-top: 0px;
+    padding-top: 4vmin;
   }
 
   .popupname{
