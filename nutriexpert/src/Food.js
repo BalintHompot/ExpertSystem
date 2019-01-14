@@ -29,8 +29,8 @@ new Food("Meat Pizza", "./img/Meat Pizza.jpg", "gram", {NB12:1}, ["meat", "anima
 new Food("Sweets", "./img/Sweets.jpg", "gram", {}, ["warning"], ["product"], "It is recommended to reduce sugar intake."),
 new Food("Sauce/Dressing", "./img/Ready SauceDressing.jpg", "gram", {}, ["warning"], ["product"], "Ready made products often contain excessive amounts of salt and sugar."),
 new Food("Sweet Spread", "./img/Sweet Spread.jpg", "gram", {}, ["warning"], ["product"], "It is recommended to reduce suger intake." ),
-
-
+new Food("Peanut Butter", "./img/Peanut Butter.jpg", "portion", {NLegumes:1}, ["peanut"], ["product"], "Eating Legumes at least once per week is recommended."),
+new Food("Peanuts (salted)", "./img/Peanut salted.jpg", "portion", {NLegumes:1}, ["peanut", "warning"], ["product"], "Salt intake should remain below 6g per day. Eating Legumes at least once per week is recommended."),
 
 //Vegetables
 new Food("Potato", "./img/Potato.jpg", "gram", {NVegetables:88}, [], ["vegetable"],"The daily recommended intake for vegetables  is 200g."),
@@ -61,6 +61,8 @@ new Food("Black beans", "./img/Black Beans.jpg", "portion", {NVegetables:50, NLe
 
 //Legume only
 new Food("Other legumes", "./img/Other Legumes.jpg", "portion", {NVegetables:50, NLegumes:1}, [], ["legume"],"Eating Legumes at least once per week is recommended."),
+new Food("Peanut", "./img/Peanut.jpg", "portion", {NLegumes:1}, ["peanut"], ["legume"], "Eating Legumes at least once per week is recommended."),
+
 
 
 //Fruits

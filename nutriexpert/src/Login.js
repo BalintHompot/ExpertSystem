@@ -270,24 +270,7 @@ class Login extends Component {
                         <header className="loginlabel">
                             What allergies do you have?
                                 </header>
-                                /* Lactose and Gluten are avoidable with specific products
-                                <div className="radio">
-                                <label>
-                                    <input type="radio" value="lactose" name="lactoseName"
-                                                checked={this.state.selected["lactose"]}
-                                                onChange={this.handleOptionChange} />
-                                    Lactose
-                                </label>
-                                </div>
-                                <div className="radio">
-                                <label>
-                                    <input type="radio" value="gluten" name="glutenName"
-                                                checked={this.state.selected["gluten"]}
-                                                onChange={this.handleOptionChange} />
-                                    Gluten
-                                </label>
-                                </div>
-                                */
+
                                 <div className="radio">
                                 <label>
                                     <input type="radio" value="egg" name="eggName"
