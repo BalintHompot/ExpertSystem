@@ -270,6 +270,7 @@ class Login extends Component {
                         <header className="loginlabel">
                             What allergies do you have?
                                 </header>
+                                /* Lactose and Gluten are avoidable with specific products
                                 <div className="radio">
                                 <label>
                                     <input type="radio" value="lactose" name="lactoseName"
@@ -286,6 +287,7 @@ class Login extends Component {
                                     Gluten
                                 </label>
                                 </div>
+                                */
                                 <div className="radio">
                                 <label>
                                     <input type="radio" value="egg" name="eggName"
