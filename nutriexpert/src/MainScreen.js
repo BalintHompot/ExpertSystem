@@ -32,10 +32,12 @@ class NoQPopup extends React.Component {
     return (
       <div className='popup'>
         <div className='popup_inner_advice' >
-          <h1 className = 'popupname'>{this.props.name + ", you don't need NutriExpert"}</h1>
+        <div className = 'popup_inner_text_container'>
+          <h1 className = 'popupname'>{this.props.name + ", you don't need NutriGuru"}</h1>
 
           <p className = 'fooddescription'>  You're an expert yourself! It seems you are perfectly on track staying healthy.</p>
         <button className = "details2" onClick={this.props.goLogin}>Start again</button>
+        </div>
         </div>
       </div>
     );
@@ -160,6 +162,7 @@ class MainScreen extends Component {
           global.specificQuestionList.push(newQ)
         }else{
           newQ = {text: ""}
+          this.state.currentQuestion = ""
           global.lackingNutrient = nutrient
           global.consumedList = this.state.consumed
           this.togglePopup()
@@ -194,8 +197,8 @@ class MainScreen extends Component {
       newQ = {text: ""}
       global.lackingNutrient = mostImportant
       global.consumedList = this.state.consumed
-      this.props.history.push('/Advice')
-
+      console.log("no more questions")
+      this.togglePopup()
     }
     global.specificQuestionList.push(newQ)
   }
@@ -338,7 +341,7 @@ class MainScreen extends Component {
   render() {
 
     const foodls =
-    this.state.currentFoodlist.length > 0 ?
+    this.state.currentFoodlist.length > 0 && this.state.currentQuestion != "" ?
       this.state.currentFoodlist.map((d) => <li>
         <button className="fooditem" onClick={e => this.addToSelected({d})}>
           <img className = "foodimage" src = {require(`${d.img}`)}/>

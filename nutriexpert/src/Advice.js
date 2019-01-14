@@ -161,7 +161,7 @@ class Advice extends Component {
                 </div>
 
                 <div className = "advicemiddlebad">
-                    <p className = "title">You should be careful with</p>
+                    <p className = "title">Be careful with</p>
                     <p className = "subtitle">{this.state.negativeComment}</p>
                     <div className = "scrollablelist" style={{overflow: 'auto'}}>
 

@@ -3,8 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "electron": "^1.8.8",
-    "react-scripts": "0.8.5"
+    "concurrently": "^4.0.1",
+    "electron": "^3.0.7",
+    "electron-builder": "^20.31.2",
+    "electron-prebuilt-compile": "^3.0.10",
+    "electron-react-devtools": "^0.5.3",
+    "typescript": "^3.1.6",
+    "wait-on": "^3.1.0"
   },
   "dependencies": {
     "@material-ui/core": "^3.5.1",
@@ -30,11 +35,48 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "electron": "electron .",
-    "electron-dev": "ELECTRON_START_URL=http://localhost:3000 electron ."
+    "electron-start": "electron .",
+    "electron-dev": "concurrently \"BROWSER=none PORT=3000 yarn start\" \"wait-on http://localhost:3000 && electron .\"",
+    "preelectron-pack": "yarn build",
+    "electron-pack": "npx build --x64 --macos --win --linux --c.extraMetadata.main=build/electron-starter.js --publish=never"
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "build": {
+    "appId": "com.redkarma.bepartpc",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    },
+    "mac": {
+      "icon": "assets/icon4.icns",
+      "target": [
+        "pkg",
+        "dmg",
+        "mas"
+      ]
+    },
+    "mas": {
+      "entitlements": "assets/entitlements.mas.plist",
+      "entitlementsInherit": "assets/entitlements.mas.inherit.plist",
+      "provisioningProfile": "assets/embedded.provisionprofile"
+    },
+    "win": {
+      "icon": "assets/icon4.ico",
+      "target": "nsis"
+    },
+    "linux": {
+      "icon": "assets/icon4.png",
+      "target": [
+        "snap",
+        "AppImage",
+        "deb"
+      ]
+    }
   },
   "browserslist": [
     ">0.2%",

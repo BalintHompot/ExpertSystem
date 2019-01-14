@@ -9,6 +9,7 @@ class Popup extends React.Component {
       return (
         <div className='popup'>
           <div className='popup_inner' >
+          <div className = 'popup_inner_text_container'>
             <h className = 'popupname'>{"Hello " + this.props.name + "!"}</h>
             <p> After clicking through just a few simple questions, NutriGuru will provide you
                 with easy tips on how to achieve an even more healthy diet. NOTE: NutriGuru is not
@@ -30,9 +31,12 @@ class Popup extends React.Component {
                 4. You can select items multiple times.
                 </p>
                 <p>
-                5. Left-bound will be a list of items selected.
+                5. You can select an item multiple times, in case you consumed a specific item several times
+                </p>
+                <p>
+                6. Left-bound will be a list of items selected.
             </p>
-
+            </div>
           <button className = "details2" onClick={this.props.updateGlobals}>Let's go!</button>
           </div>
         </div>
@@ -146,6 +150,11 @@ class Login extends Component {
         if (typeof val != expectedType || val < min || val > max){
             window.alert("Please enter a valid number")
         }
+    }
+    componentDidMount(){
+        global.reset()
+        window.scrollTo(0, 0)
+        window.scrollTo(1, 1)
     }
 
 
@@ -311,7 +320,6 @@ class Login extends Component {
                                     Tree Nuts
                                 </label>
                                 </div>
-                                </div>
                                 <div className="radio">
                                 <label>
                                     <input type="radio" value="soy" name="soy"
@@ -319,6 +327,8 @@ class Login extends Component {
                                                 onChange={this.handleOptionChange} />
                                     Soy
                                 </label>
+                                </div>
+
 
 
 
