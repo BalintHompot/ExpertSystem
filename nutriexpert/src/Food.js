@@ -92,8 +92,8 @@ new Food("Cheese", "./img/Cheese.jpg", "portion", {NDairy:1}, ["animal"], ["dair
 new Food("Milk", "./img/Milk.jpg", "portion", {NDairy:1}, ["animal"], ["dairy"],"You should eat three portions of dairy a day."),
 new Food("Milk Powder", "./img/Milk Powder.jpg", "portion", {NDairy:1}, ["dairy"], ["dairy"],"You should eat dairy or a form of dairy replacements 3 times each day."),
 new Food("Plain Yogurt", "./img/Plain Yogurt.jpg", "portion", {NDairy:1}, ["animal"], ["dairy"],"You should eat three portions of dairy a day."),
-new Food("Egg", "./img/Egg.jpg", "portion", {NDairy:1, NB12:1}, ["animal"], ["dairy"], "You should eat three portions of dairy a day."),
-new Food("Fruit Yogurt", "./img/Fruit Yogurt.jpg", "portion", {NDairy:1}, ["animal"], ["dairy"], "You should eat three portions of dairy a day."),
+new Food("Egg", "./img/Egg.jpg", "portion", {NDairy:1, NB12:1}, ["animal","eggs"], ["dairy"], "You should eat three portions of dairy a day."),
+new Food("Fruit Yogurt", "./img/Fruit Yogurt.jpg", "portion", {NDairy:1}, ["animal","warning"], ["dairy"], "Pay attention to the sugar amount contained in many fruit yogurts"),
 
 //Dairy Replacement
 new Food("Casein", "./img/Casein.jpg", "portion", {NDairy:1}, [], ["dairyReplacement"], "You should eat three portions of dairy a day."),
@@ -110,11 +110,11 @@ new Food("Miso", "./img/Miso.jpg", "portion", {NDairy:1}, ["dairy"], ["dairy"],"
 */
 
 //Fish
-new Food("Salmon", "./img/Salmon.jpg", "portion", {NFish:1, NB12:1}, ["meat", "animal"], ["fish"],"Eating fatty fish once a week is highly recommended."),
-new Food("Mackerel", "./img/Mackerel.jpg", "portion", {NFish:1, NB12:1}, ["meat", "animal"], ["fish"],"Eating fatty fish once a week is highly recommended."),
-new Food("Tuna", "./img/Tuna.jpg", "portion", {NFish:1, NB12:1}, ["meat", "animal"], ["fish"],"Eating fatty fish once a week is highly recommended."),
-new Food("Sardines", "./img/Sardines.jpg", "portion", {NFish:1, NB12:1}, ["meat", "animal"], ["fish"],"Eating fatty fish once a week is highly recommended."),
-new Food("Trout", "./img/Trout.jpg", "portion", {NFish:1, NB12:1}, ["meat", "animal"], ["fish"],"Eating fatty fish once a week is highly recommended."),
+new Food("Salmon", "./img/Salmon.jpg", "portion", {NFish:1, NB12:1}, ["meat", "animal","fish"], ["fish"],"Eating fatty fish once a week is highly recommended."),
+new Food("Mackerel", "./img/Mackerel.jpg", "portion", {NFish:1, NB12:1}, ["meat", "animal","fish"], ["fish"],"Eating fatty fish once a week is highly recommended."),
+new Food("Tuna", "./img/Tuna.jpg", "portion", {NFish:1, NB12:1}, ["meat", "animal","fish"], ["fish"],"Eating fatty fish once a week is highly recommended."),
+new Food("Sardines", "./img/Sardines.jpg", "portion", {NFish:1, NB12:1}, ["meat", "animal","fish"], ["fish"],"Eating fatty fish once a week is highly recommended."),
+new Food("Trout", "./img/Trout.jpg", "portion", {NFish:1, NB12:1}, ["meat", "animal","fish"], ["fish"],"Eating fatty fish once a week is highly recommended."),
 new Food("Fish Replacement", "./img/Other.jpg", "portion", {NFish:1}, [], ["fishReplacement"]),
 //new Food("Swordfish", "./img/Swordfish.jpg", "portion", {NFish:1}, ["meat"], ["fish"],"Eating fatty fish once a week is highly recommended."),
 //new Food("Halibut", "./img/Halibut.jpg", "portion", {NFish:1}, ["meat"], ["fish"],"Eating fatty fish once a week is highly recommended."),
@@ -130,8 +130,8 @@ new Food("Fish Replacement", "./img/Other.jpg", "portion", {NFish:1}, [], ["fish
 //Seafood
 //new Food("Scallops", "./img/Scallops.jpg", "portion", {NFish:1}, ["warning", "meat"], ["fish"],"Fish is generally good. Fatty fish is even better then white fish."),
 //new Food("Mussels", "./img/Mussels.jpg", "portion", {NFish:1}, ["warning", "meat"], ["fish"],"Fish is generally good. Fatty fish is even better then white fish."),
-new Food("Shrimp", "./img/Shrimp.jpg", "portion", {NFish:1, NB12:1}, ["meat"], ["fish"],"Fish is generally good. Fatty fish is even better then white fish."),
-new Food("Crab", "./img/Crab.jpg", "portion", {NFish:1, NB12:1}, ["meat"], ["fish"],"Fish is generally good. Fatty fish is even better then white fish."),
+new Food("Shrimp", "./img/Shrimp.jpg", "portion", {NFish:1, NB12:1}, ["meat","shellfish"], ["fish"],"Fish is generally good. Fatty fish is even better then white fish."),
+new Food("Crab", "./img/Crab.jpg", "portion", {NFish:1, NB12:1}, ["meat","shellfish"], ["fish"],"Fish is generally good. Fatty fish is even better then white fish."),
 //new Food("Lobster", "./img/Lobster.jpg", "portion", {NFish:1}, ["warning", "meat"], ["fish"],"Fish is generally good. Fatty fish is even better then white fish."),
 
 //Meats
@@ -145,7 +145,7 @@ new Food("Sheep", "./img/Sheep.jpg", "gram", {NB12:1}, ["meat", "animal"], ["mea
 new Food("Bacon", "./img/Bacon.jpg", "gram", {NB12:1}, ["warning", "meat", "animal"], ["meat"],"Most bacon contains high levels of salt. Salt intake should be limited to about 6 grams a day."),
 //new Food("Whey Protein Isolate", "./img/Whey Protein Isolate", )
 new Food("B12 supplements", "./img/B12 supplements", "portion", {NB12:1}, [], ["meatReplacement"], ""),
-//new Food("Other white meat", "./img/Other white meat.jpg", "gram", {NB12:1}, ["meat"], ["meat"],""),
+//new Food("Other white meat", "./img/Oher white meat.jpg", "gram", {NB12:1}, ["meat"], ["meat"],""),
 //new Food("Other read meat", "./img/Other read meat.jpg", "gram", {NB12:1}, ["warning", "meat"], ["meat"],"There is inconclusive evidence on negative health effects of red meat."),
 
 //Drinks
@@ -161,10 +161,10 @@ new Food("Wine", "./img/Wine.jpg", "portion", {}, ["warning"], ["drink"],"Reduci
 new Food("Liquor", "./img/Liquor.jpg", "portion", {}, ["warning"], ["drink"],"Reducing alcohol intake can greatly benefit your health."),
 
 //Nuts (Contain oil to account for the possibility of 45g extra nuts replacing 50ml oil)
-new Food("Almonds", "./img/Almonds.jpg", "gram", {NNuts:15, NOil:12.5}, ["nut"], ["nut"],"A minimum of 15 grams of nuts each day is healthy."),
-new Food("Hazelnuts", "./img/Hazelnuts.jpg", "gram", {NNuts:15, NOil:12.5}, ["nut"], ["nut"],"A minimum of 15 grams of nuts each day is healthy."),
-new Food("Walnuts", "./img/Walnuts.jpg", "gram", {NNuts:15, NOil:12.5}, ["nut"], ["nut"],"A minimum of 15 grams of nuts each day is healthy."),
-new Food("Mixed Nuts", "./img/Mixed Nuts.jpg", "gram", {NNuts:15, NOil:12.5}, ["nut"], ["nut"],"A minimum of 15 grams of nuts each day is healthy."),
+new Food("Almonds", "./img/Almonds.jpg", "gram", {NNuts:15, NOil:12}, ["treenuts"], ["nut"],"A minimum of 15 grams of nuts each day is healthy."),
+new Food("Hazelnuts", "./img/Hazelnuts.jpg", "gram", {NNuts:15, NOil:12}, ["treenuts"], ["nut"],"A minimum of 15 grams of nuts each day is healthy."),
+new Food("Walnuts", "./img/Walnuts.jpg", "gram", {NNuts:15, NOil:12}, ["treenuts"], ["nut"],"A minimum of 15 grams of nuts each day is healthy."),
+new Food("Mixed Nuts", "./img/Mixed Nuts.jpg", "gram", {NNuts:15, NOil:12}, [], ["nut"],"A minimum of 15 grams of nuts each day is healthy."),
 
 //Oil
 new Food("Olive oil", "./img/Olive oil.jpg", "ml", {NOil:13.4}, [], ["oils"],"It is recommended to consume either 50 ml of native olive oil or an extra of 30g of nuts."),
