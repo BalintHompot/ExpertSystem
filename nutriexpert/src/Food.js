@@ -131,7 +131,7 @@ new Food("Fish Replacement", "./img/Other.jpg", "portion", {NFish:1}, [], ["fish
 //new Food("Scallops", "./img/Scallops.jpg", "portion", {NFish:1}, ["warning", "meat"], ["fish"],"Fish is generally good. Fatty fish is even better then white fish."),
 //new Food("Mussels", "./img/Mussels.jpg", "portion", {NFish:1}, ["warning", "meat"], ["fish"],"Fish is generally good. Fatty fish is even better then white fish."),
 new Food("Shrimp", "./img/Shrimp.jpg", "portion", {NFish:1, NB12:1}, ["meat"], ["fish"],"Fish is generally good. Fatty fish is even better then white fish."),
-new Food("Crab", "./img/Crab.jpg", "portion", {NFish:1, NB12:1}, ["meat"], ["fish"],"Fish is generally good. Fatty fish is even better then white fish."),
+new Food("Crab", "./img/Crab.jpg", "portion", {NFish:1}, ["meat"], ["fish"],"Fish is generally good. Fatty fish is even better then white fish."),
 //new Food("Lobster", "./img/Lobster.jpg", "portion", {NFish:1}, ["warning", "meat"], ["fish"],"Fish is generally good. Fatty fish is even better then white fish."),
 
 //Meats
@@ -144,7 +144,7 @@ new Food("Sheep", "./img/Sheep.jpg", "gram", {NB12:1}, ["meat", "animal"], ["mea
 //new Food("Lamb", "./img/Lamb.jpg", "gram", {NB12:1}, ["meat"], ["meat"],"There is inconclusive evidence on negative health effects of red meat."),
 new Food("Bacon", "./img/Bacon.jpg", "gram", {NB12:1}, ["warning", "meat", "animal"], ["meat"],"Most bacon contains high levels of salt. Salt intake should be limited to about 6 grams a day."),
 //new Food("Whey Protein Isolate", "./img/Whey Protein Isolate", )
-new Food("B12 supplements", "./img/B12 supplements", "portion", {NB12:1}, [], ["meatReplacement"], ""),
+new Food("B12 supplements", "./img/B12 Supplements.jpg", "portion", {NB12:1}, [], ["meatReplacement"]),
 //new Food("Other white meat", "./img/Other white meat.jpg", "gram", {NB12:1}, ["meat"], ["meat"],""),
 //new Food("Other read meat", "./img/Other read meat.jpg", "gram", {NB12:1}, ["warning", "meat"], ["meat"],"There is inconclusive evidence on negative health effects of red meat."),
 
