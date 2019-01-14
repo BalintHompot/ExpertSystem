@@ -32,7 +32,7 @@
 
     font-size: 5vmin;
     text-align: center;
-    padding-right : 15vw;
+   
     position: -webkit-sticky;
     position: sticky;
     top: 0px;
@@ -330,8 +330,8 @@
 }
   .popup {
     position: fixed;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 200vh;
     top: 0;
     left: 0;
     right: 0;
@@ -339,6 +339,7 @@
     margin: auto;
     background-color: rgba(0,0,0, 0.5);
   }
+  
   .popup_inner {
     font-family: var(--primaryFontFamily);
     position: absolute;
@@ -357,6 +358,7 @@
 
     
   }
+
   .popup_inner_text_container{
     margin-top: 2vh;
     margin-left: 2vw;
@@ -374,6 +376,23 @@
     background: white;
     text-align: center;
     border-radius: 2vmin;
+    height: 60vh;
+    border-style: solid;
+    border-width: 0.1vmin;
+    border-color: black;
+   
+  }
+  .popup_inner_advicepopup {
+    font-family: var(--primaryFontFamily);
+    position: absolute;
+    left: 25%;
+    right: 25%;
+    top: 25%;
+    bottom: 25%;
+    margin: auto;
+    background: white;
+    text-align: center;
+    border-radius: 2vmin;
     height: 30vh;
     border-style: solid;
     border-width: 0.1vmin;
@@ -381,7 +400,6 @@
 
     
   }
-
   .removebutton{
     font-family: var(--primaryFontFamily);
       font-size: 1.5vmin;
@@ -912,8 +930,8 @@ border-radius: 50%;
     left:0px;
       background-image: url('./img/background.jpg');
         width: 100vw;
-        height: 200vh;
-        background-size: 100vmax;
+        height: 100vh;
+        background-size: 115vmax;
         margin-top: 0%;
         background-repeat: no-repeat;
         background-attachment: fixed;

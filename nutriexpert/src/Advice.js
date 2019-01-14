@@ -7,7 +7,7 @@ class Popup extends React.Component {
     render() {
       return (
         <div className='popup'>
-          <div className='popup_inner' >
+          <div className='popup_inner_advice' >
             <h1 className = 'popupname'>{this.props.item.name}</h1>
             <img className = "popupfoodimage" src = {require(`${this.props.item.img}`)}/>
             <p className = 'fooddescription'>{this.props.item.description}</p>

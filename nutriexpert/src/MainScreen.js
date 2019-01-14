@@ -17,7 +17,7 @@ class Popup extends React.Component {
   render() {
     return (
       <div className='popup'>
-        <div className='popup_inner_advice' >
+        <div className='popup_inner_advicepopup' >
           <h1 className = 'popupname'>{"Hey " + this.props.name + "!"}</h1>
 
           <p className = 'fooddescription'> The nutrition expert is finished with getting the best advice. Ready when you are! </p>
@@ -31,7 +31,7 @@ class NoQPopup extends React.Component {
   render() {
     return (
       <div className='popup'>
-        <div className='popup_inner_advice' >
+        <div className='popup_inner_advicepopup' >
         <div className = 'popup_inner_text_container'>
           <h1 className = 'popupname'>{this.props.name + ", you don't need NutriGuru"}</h1>
 
@@ -158,13 +158,17 @@ class MainScreen extends Component {
       if (ratio > 0){
         console.log("specific nutrient not fulfilled")
         var newQ = global.nutrients[nutrient].questionList.shift()
+
         if(newQ){
+          console.log("found question")
+          console.log(newQ)
           global.specificQuestionList.push(newQ)
         }else{
           newQ = {text: ""}
           this.state.currentQuestion = ""
           global.lackingNutrient = nutrient
           global.consumedList = this.state.consumed
+          console.log("popup from lookFroSpecific")
           this.togglePopup()
         }
       }
@@ -266,23 +270,26 @@ class MainScreen extends Component {
       this.lookForSpecificQuestion("NDairy")
     }
     if(askedGeneralQuestions == 5){
-      this.lookForSpecificQuestion("NFish")
+      this.lookForSpecificQuestion("NFish") 
+      this.lookForSpecificQuestion("NLegumes")
     }
     if(askedGeneralQuestions == 6){
-      this.lookForSpecificQuestion("NLegumes")
-
+      this.lookForSpecificQuestion("NNuts")
+      this.lookForSpecificQuestion("NWholeGrain")
+      
     }
     if(askedGeneralQuestions == 7){
-      this.lookForSpecificQuestion("NNuts")
+      this.lookForSpecificQuestion("NTea")
     }
   }
+
 
   async updateQuestion(){
       this.state.prevQuestion = this.state.currentQuestion
       if (global.generalQuestionList.length == 0){
         this.lookForNewQuestions()
 
-      }else{
+      }else if (global.specificQuestionList.length == 0){
         this.earliTerminationForGeneralQuestions(this.state.askedGeneralQuestions)
       }
       console.log("update q")
