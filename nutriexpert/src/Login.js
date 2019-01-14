@@ -242,12 +242,13 @@ class Login extends Component {
 
     render() {
         return (
-            <div className='foodbackground'>
+            <div >
+            <div className='foodbackground'></div>
             <h1 className = "title">Welcome to NutriGuru!</h1>
             <h2 className = "subtitle">Please set your personal information</h2>
 
 
-                <div >
+                <div className = 'loginouter'>
 
                     <div className="loginmiddle">
                         <header className="loginlabel">
