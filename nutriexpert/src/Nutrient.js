@@ -19,24 +19,25 @@ class Nutrient{
 const VERY_IMORTANT = 1000
 const IMPORTANT = 750
 
-const VEGE2 = "Did you eat any other vegetables not in the list?"
+const VEGE2 = "Alternatively, did you eat any of these other vegetables?"
 const FRUIT2 =  "Did you eat any of these more exotic fruits?"
 const DAIRY2 = "Did you eat other dairy products or replacement products?"
 //const NUTS2
 //const WHOLEGRAIN2
 const B122 = "It seems you did not eat any meat or eggs. Do you supplement B12?"
-const OIL2 = "Oil seems to be missing in your diet. However, you can replace it with nuts. Did you have 3 portions yet today?"
+const OIL2 = "You did not have enough oil (3 portions). However, you can replace it with a total of 4 portions of nuts?"
 const FISH2 = "It seems you did not have fish today, did you have any in the past 7 days?"
-const LEGUME2 = "Oh you hadn't had legumes today, have you had any in the last 7 days?"
+const FISH3 = "Have you consumed any replacement for fish?"
+const LEGUME2 = "Oh you hadn't had legumes today. Have you had any in the last 7 days?"
 
 var newNutriList = function(){ return {
     //Name: new Nutrient(N"name", rda, rdaUnit, est = 0, impMult, [new Question("asdf?", "ghjk?")])
     //For hierarchy: Importance score should be calculated as "(1 - (estimated/rda)) * importanceMultiplier"
-    NVegetables: new Nutrient("vegetables",       200,    "gram", 0, VERY_IMORTANT, [new Question(VEGE2, ["NVegetables"],[])]),
-    NFruits:     new Nutrient("fruits"    ,       200,    "gram", 0, VERY_IMORTANT, [new Question(FRUIT2, ["exotic_fruits"],[])]),
+    NVegetables: new Nutrient("vegetables",       200,    "gram", 0, VERY_IMORTANT, [new Question(VEGE2, ["exotic_vegetable"],[])]),
+    NFruits:     new Nutrient("fruits"    ,       200,    "gram", 0, VERY_IMORTANT, [new Question(FRUIT2, ["exotic_fruit"],[])]),
     NDairy:      new Nutrient("dairy"     ,         3, "portion", 0, VERY_IMORTANT, [new Question(DAIRY2,["dairyReplacement"],[])]),
     //To be determined: Fish and/or Legumes yes/no or specificly what?
-    NFish:       new Nutrient("fish"      ,         1, "portion", 0, VERY_IMORTANT, [new Question(FISH2,["fish"],[])]),
+    NFish:       new Nutrient("fish"      ,         1, "portion", 0, VERY_IMORTANT, [new Question(FISH2,["fish"],["meat", "animal"]), new Question(FISH3, ["fishReplacement"], [])]),
     NLegumes:    new Nutrient("legumes"   ,         1, "portion", 0, VERY_IMORTANT, [new Question(LEGUME2,["legume"],[])]),
 
                                                                                     //All need replacement questions
@@ -45,7 +46,7 @@ var newNutriList = function(){ return {
     NTea:        new Nutrient("tea"       ,         3, "portion", 0, VERY_IMORTANT, []),
 
     //TBD: Is B12 portion 1 or specific number?
-    NB12:        new Nutrient("b12"       ,         1, "portion", 0, VERY_IMORTANT, [new Question(B122,[],[])]),
+    NB12:        new Nutrient("b12"       ,         1, "portion", 0, VERY_IMORTANT, [new Question(B122,["meatReplacement"],[])]),
     NOil:        new Nutrient("oils"      ,        50,      "ml", 0, IMPORTANT, [new Question(OIL2,["nut"],[])]),
   //  NNoOilMoreNuts:new Nutrient("nuts"    ,        45,    "gram", 0,     IMPORTANT, [],[]),
 

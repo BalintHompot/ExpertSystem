@@ -8,13 +8,13 @@ class Question{
     }
 }
 
-const PRODUCTS = "Mark the products you had in the last 24 hours:"
+const PRODUCTS = "Mark the products you had:"
 const VEGETABLES = "Mark your veggies:"
 const FRUITS = "Which fruits did you eat?"
 const DAIRY = "Dairy"
 const MEATS = "Meat and Fish"
 const NUTSOILS = "Nuts and Oils"
-const DRINKS = "What drinks did you have? One click per glass or cup:"
+const DRINKS = "What drinks did you have?"
 
 var newQuestionList = function(){ return [
 
@@ -24,9 +24,9 @@ var newQuestionList = function(){ return [
     //check Nvegetables if it still has highest importance value (add later)
     new Question(FRUITS, ["fruit"], []),
     //check Nfruits
-    new Question(DAIRY, ["dairy"], ["dairy"]),
+    new Question(DAIRY, ["dairy"], []),
     //check Ndairy
-    new Question(MEATS, ["meat", "fish"], ["meat"]),
+    new Question(MEATS, ["meat", "fish"], ["meat", "animal"]),
     //check Nfish
     //check Nlegumes
     new Question(NUTSOILS, ["nut", "oils"], []),

@@ -10,8 +10,9 @@ class Popup extends React.Component {
         <div className='popup'>
           <div className='popup_inner' >
             <h className = 'popupname'>{"Hello " + this.props.name + "!"}</h>
-            <p> After clicking through just a few simple questions, Nutrition Expert will provide you
-                with easy tips on how to achieve an even more healthy diet.
+            <p> After clicking through just a few simple questions, NutriGuru will provide you
+                with easy tips on how to achieve an even more healthy diet. NOTE: NutriGuru is not
+                a substitute for professional medical advice.
             </p>
             <p>
                 Here a quick heads up:
@@ -233,7 +234,7 @@ class Login extends Component {
     render() {
         return (
             <div className='foodbackground'>
-            <h1 className = "title">Welcome to Nutririon Expert!</h1>
+            <h1 className = "title">Welcome to NutriGuru!</h1>
             <h2 className = "subtitle">Please set your personal information</h2>
 
 
@@ -333,7 +334,7 @@ class Login extends Component {
                                                 onChange={this.handleOptionChange} />
                                     Soy
                                 </label>
-                                
+
 
 
                         <button className="details2" style={{ display: 'block' }} onClick={this.togglePopup}>Start</button>

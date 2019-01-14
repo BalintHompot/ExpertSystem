@@ -264,16 +264,14 @@ class MainScreen extends Component {
     }
     if(askedGeneralQuestions == 5){
       this.lookForSpecificQuestion("NFish")
-      this.lookForSpecificQuestion("NLegumes")
     }
     if(askedGeneralQuestions == 6){
-      this.lookForSpecificQuestion("NNuts")
-      this.lookForSpecificQuestion("NWholeGrain")
-      this.lookForSpecificQuestion("NTea")
-      this.lookForSpecificQuestion("NB12")
-      this.lookForSpecificQuestion("NOil")
-    }
+      this.lookForSpecificQuestion("NLegumes")
 
+    }
+    if(askedGeneralQuestions == 7){
+      this.lookForSpecificQuestion("NNuts")
+    }
   }
 
   async updateQuestion(){
