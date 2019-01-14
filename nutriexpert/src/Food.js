@@ -12,6 +12,33 @@ class Food {
 
 var newFoodlist = function(){return [
 
+  //Vegetables
+  new Food("Potato", "./img/Potato.jpg", "gram", {NVegetables:88}, [], ["vegetable"],"The daily recommended intake for vegetables  is 200g."),
+  new Food("Tomato", "./img/Tomato.jpg", "gram", {NVegetables:70}, [], ["vegetable"],"The daily recommended intake for vegetables  is 200g."),
+  new Food("Onion", "./img/Onion.jpg", "gram", {NVegetables:100}, [], ["vegetable"],"The daily recommended intake for vegetables  is 200g."),
+  new Food("Carrot", "./img/Carrot.jpg", "gram", {NVegetables:70}, [], ["vegetable"],"The daily recommended intake for vegetables  is 200g."),
+  new Food("Lettuce", "./img/Lettuce.jpg", "gram", {NVegetables:25}, [], ["vegetable"],"The daily recommended intake for vegetables  is 200g."),
+  new Food("Broccoli", "./img/Broccoli.jpg", "gram", {NVegetables:50}, [], ["vegetable"],"The daily recommended intake for vegetables  is 200g."),
+  new Food("Bell pepper", "./img/Bell pepper.jpg", "gram", {NVegetables:135}, [], ["vegetable"],"The daily recommended intake for vegetables  is 200g."),
+  new Food("Celery", "./img/Celery.jpg", "gram", {NVegetables:25}, [], ["vegetable"],"The daily recommended intake for vegetables  is 200g."),
+  new Food("Cucumber", "./img/Cucumber.jpg", "gram", {NVegetables:115}, [], ["vegetable"],"The daily recommended intake for vegetables  is 200g."),
+  new Food("Peas", "./img/Peas.jpg", "portion", {NLegumes:1}, [], ["vegetable", "legume"],"Eating Legumes at least once per week is recommended."),
+  new Food("Corn", "./img/Corn.jpg", "gram", {NVegetables:100, NLegumes:1}, [], ["vegetable"],"The daily recommended intake for vegetables  is 200g."),
+  new Food("Mushroom", "./img/Mushroom.jpg", "gram", {NVegetables:30}, [], ["vegetable"],"The daily recommended intake for vegetables  is 200g."),
+
+  //Other Vegetables
+  new Food("Sweet Potato", "./img/Sweet Potato.jpg", "gram", {NVegetables:130}, [], ["exotic_vegetable"],"The daily recommended intake for vegetables  is 200g."),
+  new Food("Spinach", "./img/Spinach.jpg", "gram", {NVegetables:25}, [], ["exotic_vegetable"],"The daily recommended intake for vegetables  is 200g."),
+  new Food("Cabbage", "./img/Cabbage.jpg", "gram", {NVegetables:50}, [], ["exotic_vegetable"],"The daily recommended intake for vegetables  is 200g."),
+  new Food("Beans", "./img/Beans.jpg", "gram", {NVegetables:60}, [], ["exotic_vegetable"],"The daily recommended intake for vegetables  is 200g."),
+  new Food("Cauliflower", "./img/Cauliflower.jpg", "gram", {NVegetables:70}, [], ["exotic_vegetable"],"The daily recommended intake for vegetables  is 200g."),
+  new Food("Green/White Aspargus", "./img/Aspargus.jpg", "gram", {NVegetables:40}, [], ["exotic_vegetable"],"The daily recommended intake for vegetables  is 200g."),
+  new Food("Soybeans", "./img/Soybeans.jpg", "portion", {NVegetables:50, NLegumes:1}, ["soy"], ["vegetable", "legume"],"Eating Legumes at least once per week is recommended."),
+  new Food("Lentils", "./img/Lentils.jpg", "portion", {NVegetables:50, NLegumes:1}, [], ["vegetable", "legume"],"Eating Legumes at least once per week is recommended."),
+  new Food("Chickpeas", "./img/Chickpeas.jpg", "portion", {NVegetables:50, NLegumes:1}, [], ["exotic_vegetable", "legume"],"Eating Legumes at least once per week is recommended."),
+  new Food("Kidney beans", "./img/Kidney Beans.jpg", "portion", {NVegetables:50, NLegumes:1}, [], ["exotic_vegetable", "legume"],"Eating Legumes at least once per week is recommended."),
+  new Food("Black beans", "./img/Black Beans.jpg", "portion", {NVegetables:50, NLegumes:1}, [], ["exotic_vegetable", "legume"],"Eating Legumes at least once per week is recommended."),
+
 //Products
 new Food("Brown Rice", "./img/Brown Rice.jpg", "gram", {NWholeGrain:90}, [], ["product"], "The daily recommended intake for whole grain products is 90g."),
 new Food("Oats", "./img/Oats.jpg", "gram", {NWholeGrain:75}, [], ["product"], "The daily recommended intake for whole grain products is 90g."),
@@ -32,32 +59,6 @@ new Food("Sweet Spread", "./img/Sweet Spread.jpg", "gram", {}, ["warning"], ["pr
 new Food("Peanut Butter", "./img/Peanut Butter.jpg", "portion", {NLegumes:1}, ["peanut"], ["product"], "Eating Legumes at least once per week is recommended."),
 new Food("Peanuts (salted)", "./img/Peanut salted.jpg", "portion", {NLegumes:1}, ["peanut", "warning"], ["product"], "Salt intake should remain below 6g per day. Eating Legumes at least once per week is recommended."),
 
-//Vegetables
-new Food("Potato", "./img/Potato.jpg", "gram", {NVegetables:88}, [], ["vegetable"],"The daily recommended intake for vegetables  is 200g."),
-new Food("Tomato", "./img/Tomato.jpg", "gram", {NVegetables:70}, [], ["vegetable"],"The daily recommended intake for vegetables  is 200g."),
-new Food("Onion", "./img/Onion.jpg", "gram", {NVegetables:100}, [], ["vegetable"],"The daily recommended intake for vegetables  is 200g."),
-new Food("Carrot", "./img/Carrot.jpg", "gram", {NVegetables:70}, [], ["vegetable"],"The daily recommended intake for vegetables  is 200g."),
-new Food("Lettuce", "./img/Lettuce.jpg", "gram", {NVegetables:25}, [], ["vegetable"],"The daily recommended intake for vegetables  is 200g."),
-new Food("Broccoli", "./img/Broccoli.jpg", "gram", {NVegetables:50}, [], ["vegetable"],"The daily recommended intake for vegetables  is 200g."),
-new Food("Bell pepper", "./img/Bell pepper.jpg", "gram", {NVegetables:135}, [], ["vegetable"],"The daily recommended intake for vegetables  is 200g."),
-new Food("Celery", "./img/Celery.jpg", "gram", {NVegetables:25}, [], ["vegetable"],"The daily recommended intake for vegetables  is 200g."),
-new Food("Cucumber", "./img/Cucumber.jpg", "gram", {NVegetables:115}, [], ["vegetable"],"The daily recommended intake for vegetables  is 200g."),
-new Food("Peas", "./img/Peas.jpg", "portion", {NLegumes:1}, [], ["vegetable", "legume"],"Eating Legumes at least once per week is recommended."),
-new Food("Corn", "./img/Corn.jpg", "gram", {NVegetables:100, NLegumes:1}, [], ["vegetable"],"The daily recommended intake for vegetables  is 200g."),
-new Food("Mushroom", "./img/Mushroom.jpg", "gram", {NVegetables:30}, [], ["vegetable"],"The daily recommended intake for vegetables  is 200g."),
-
-//Other Vegetables
-new Food("Sweet Potato", "./img/Sweet Potato.jpg", "gram", {NVegetables:130}, [], ["exotic_vegetable"],"The daily recommended intake for vegetables  is 200g."),
-new Food("Spinach", "./img/Spinach.jpg", "gram", {NVegetables:25}, [], ["exotic_vegetable"],"The daily recommended intake for vegetables  is 200g."),
-new Food("Cabbage", "./img/Cabbage.jpg", "gram", {NVegetables:50}, [], ["exotic_vegetable"],"The daily recommended intake for vegetables  is 200g."),
-new Food("Beans", "./img/Beans.jpg", "gram", {NVegetables:60}, [], ["exotic_vegetable"],"The daily recommended intake for vegetables  is 200g."),
-new Food("Cauliflower", "./img/Cauliflower.jpg", "gram", {NVegetables:70}, [], ["exotic_vegetable"],"The daily recommended intake for vegetables  is 200g."),
-new Food("Green/White Aspargus", "./img/Aspargus.jpg", "gram", {NVegetables:40}, [], ["exotic_vegetable"],"The daily recommended intake for vegetables  is 200g."),
-new Food("Soybeans", "./img/Soybeans.jpg", "portion", {NVegetables:50, NLegumes:1}, ["soy"], ["vegetable", "legume"],"Eating Legumes at least once per week is recommended."),
-new Food("Lentils", "./img/Lentils.jpg", "portion", {NVegetables:50, NLegumes:1}, [], ["vegetable", "legume"],"Eating Legumes at least once per week is recommended."),
-new Food("Chickpeas", "./img/Chickpeas.jpg", "portion", {NVegetables:50, NLegumes:1}, [], ["exotic_vegetable", "legume"],"Eating Legumes at least once per week is recommended."),
-new Food("Kidney beans", "./img/Kidney Beans.jpg", "portion", {NVegetables:50, NLegumes:1}, [], ["exotic_vegetable", "legume"],"Eating Legumes at least once per week is recommended."),
-new Food("Black beans", "./img/Black Beans.jpg", "portion", {NVegetables:50, NLegumes:1}, [], ["exotic_vegetable", "legume"],"Eating Legumes at least once per week is recommended."),
 
 //Legume only
 new Food("Other legumes", "./img/Other Legumes.jpg", "portion", {NVegetables:50, NLegumes:1}, [], ["legume"],"Eating Legumes at least once per week is recommended."),
